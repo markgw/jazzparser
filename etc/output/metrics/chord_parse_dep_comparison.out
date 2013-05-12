@@ -1,0 +1,13 @@
+## Exact dependency recovery metric
+[idaho ~/jazzparser/bin/analysis]$ ./result_eval.py ../../etc/output/pcfg/bigram_test/output-bigram-test-* -m deprec --mopt output=f
+Evaluating using metric: deprec
+Read 76 files with a gold result for evaluation
+Coverage: 96.05%
+Dependency recovery f-score: 0.791096
+
+## Dependency recovery of optimal node alignment
+[idaho ~/jazzparser/bin/analysis]$ ./result_eval.py ../../etc/output/pcfg/bigram_test/output-bigram-test-* -m deps --mopt output=f
+Evaluating using metric: deps
+Read 76 files with a gold result for evaluation
+Coverage: 96.05%
+Dependency alignment f-score: 0.825342

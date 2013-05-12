@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Delete "{{ sequence.name }}" | {% endblock %}
+
+{% block content %}
+	<h1>Delete chord sequence: {{ sequence.name }}</h1>
+	<div class="box">
+		<form class="standard_form" action="." method="post">
+			<p>Are you sure you want to delete the chord sequence "{{ sequence.name }}"?</p>
+			<div class="actions">
+				<input type="submit" name="delete" value="Yes"/>
+				<input type="submit" name="cancel" value="No"/>
+			</div>
+		</form>
+	</div>
+{% endblock %}

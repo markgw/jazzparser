@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Category Use Summary | {% endblock %}
+
+{% block content %}
+	<h1>Category Use Summary</h1>
+	<div class="box">
+		<table class="category_use">
+			<tr>
+				<th>Category</th> <th>Count</th> <th>Proportion</th>
+			</tr>
+			{% for row in table_data %}
+			<tr>
+				<td>{{ row.category }}</td>
+				<td class="number">{{ row.count }}</td>
+				<td class="number">{{ row.percent }}%</td>
+			</tr>
+			{% endfor %}
+		</table>
+		<p>Total chords: {{ total }}</p>
+	</div>
+{% endblock %}

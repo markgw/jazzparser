@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+This file contains the morph entries for the jazz parser, grammar 
+version 3.
+
+The input is in the form of roman numeric chords, relative to some 
+arbitrary key.
+
+-->
+<morph 
+  name="jazz3.0">
+	<!-- Define the classes of chords and the "spellings" that
+		they contain.
+		The note sets define the notes of the canonical triad/tetrad for 
+		the class: e.g. X is a major 7 chord and Xo7 is a diminished 7 chord.
+		These are used by the chord class models, but only for initialization. 
+		They are not, of course, the only legal chord notes.
+		-->
+	<!-- The major (non-dom7) chords -->
+	<class name="X" words="X XM7 X7 Xaug,M7 Xb5,M7 Xsus4 Xsus4,7" notes="0 4 7 11" />
+	<!-- The minor (non-dom7) chords -->
+	<class name="Xm" words="Xm Xm7 Xm,M7 X#5,m7" notes="0 3 7" />
+	<!-- The major dom7 chords -->
+	<class name="X7" words="X7 Xaug Xaug7 X Xb5,7 Xb5 Xsus4 Xsus4,7 XM7" notes="0 4 7 10" />
+	<!-- The minor dom7 chords -->
+	<class name="Xm7" words="Xm7 X%7 Xo7 Xm Xm,b5 Xm,M7 X#5,m7" notes="0 3 7 10" />
+	<!-- Augmented triads -->
+	<class name="Xaug" words="Xaug Xaug7" notes="0 4 8" />
+	<!-- Dim7 chords -->
+	<!-- Note that Xm is in here because Xm(6) is an inversion of a half-dim -->
+	<class name="Xo7" words="Xo7 X%7 Xm" notes="0 3 6 9" />
+
+	<!-- The symbol "X" is used to represent any chord root
+		(I, bII, II, bIII, etc). The parser will deal with this. -->
+		
+	<entry pos="T" class="X"/>
+	<entry pos="T" class="Xm"/>
+	<entry pos="T_III" class="Xm"/>
+	<entry pos="T_bVI" class="X"/>
+	
+	<entry pos="D" class="X7"/>
+	<entry pos="D" class="Xm7"/>
+	<entry pos="D_Bd" class="X7"/>
+	<entry pos="D_Bd" class="Xm7"/>
+	<entry pos="D_Tt" class="X7"/>
+	<entry pos="D_Tt" class="Xm7"/>
+	<entry pos="D_Btk" class="X7"/>
+	<entry pos="D_Btk" class="Xm7"/>
+	
+	<entry pos="S" class="X"/>
+	<entry pos="S" class="Xm"/>
+	<entry pos="S_bIII" class="X"/>
+	
+	<entry pos="Pass_I" class="Xo7"/>
+	<entry pos="Pass_VI" class="Xo7"/>
+	<entry pos="Pass_bV" class="Xo7"/>
+	<entry pos="Pass_bIII" class="Xo7"/>
+	
+	<entry pos="Dim_bVII" class="Xo7"/>
+	<entry pos="Dim_V" class="Xo7"/>
+	<entry pos="Dim_III" class="Xo7"/>
+	<entry pos="Dim_bII" class="Xo7"/>
+	
+	<entry pos="Aug_bII" class="X7"/>
+	<entry pos="Aug_VI" class="X7"/>
+	<entry pos="Aug_bII" class="Xm7"/>
+	<entry pos="Aug_VI" class="Xm7"/>
+	
+	<entry pos="TC_IV" class="X"/>
+	<entry pos="TC_IV" class="Xm"/>
+	<entry pos="TC_IVb" class="X"/>
+	<entry pos="TC_IVb" class="Xm"/>
+	
+	<entry pos="TC_II" class="Xm"/>
+	<entry pos="TC_IIb" class="Xm"/>
+	
+	<entry pos="D_IVm" class="Xm"/>
+	
+	<entry pos="Sus_II_V" class="X"/>
+	<entry pos="Sus_II_V" class="Xm"/>
+	<entry pos="SusAsIV_II_V" class="X"/>
+	<entry pos="SusAsIV_II_V" class="Xm"/>
+	
+	<equivmap>
+		<!-- These define entries that can be considered equivalent to another 
+			entry given a change of root. These exist to deal with inversions 
+			that show up in chord sequences as different chords.
+			
+			E.g., a diminished chord may be written as if any of its notes 
+			are the root, but this decision is made mainly on the basis of 
+			what is easiest to read. Categories must be included to handle 
+			each case for the chord grammar, but only one is required for a 
+			model that can recognise inversions itself, such as a MIDI model.
+			
+			Here we tell such models how to construct a smaller set of 
+			categories, so that they can understand annotated chord data.
+			-->
+		<map pos="T_III">
+			<equiv pos="T" class="X" root="8"/>
+		</map>
+		<map pos="T_III_Rep">
+			<equiv pos="T_Rep" class="X" root="8"/>
+		</map>
+		<map pos="T_bVI">
+			<equiv pos="T" class="Xm" root="4"/>
+		</map>
+		<map pos="T_bVI_Rep">
+			<equiv pos="T_Rep" class="Xm" root="4"/>
+		</map>
+		<map pos="S_bIII">
+			<equiv pos="S" class="Xm" root="9"/>
+		</map>
+		<map pos="Pass_VI">
+			<equiv pos="Pass_I" class="Xo7" root="3"/>
+		</map>
+		<map pos="Pass_bV">
+			<equiv pos="Pass_I" class="Xo7" root="6"/>
+		</map>
+		<map pos="Pass_bIII">
+			<equiv pos="Pass_I" class="Xo7" root="9"/>
+		</map>
+		<map pos="Dim_bVII">
+			<equiv pos="Dim_bII" class="Xo7" root="9"/>
+		</map>
+		<map pos="Dim_V">
+			<equiv pos="Dim_bII" class="Xo7" root="6"/>
+		</map>
+		<map pos="Dim_III">
+			<equiv pos="Dim_bII" class="Xo7" root="3"/>
+		</map>
+		<map pos="TC_II">
+			<equiv pos="TC_IV" class="X" root="3"/>
+		</map>
+		<map pos="TC_IIb">
+			<equiv pos="TC_IVb" class="X" root="3"/>
+		</map>
+		<map pos="Sus_II_V">
+			<equiv pos="SusAsIV_II_V" class="X" root="10"/>
+		</map>
+	</equivmap>
+</morph>

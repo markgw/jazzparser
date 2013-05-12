@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+	<script src="{{ MEDIA_URL }}js/tools.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		window.addEvent('domready', function() {
+			{% for letter_group in sequences_by_letter %}
+				new HideableSection('letter_{{ forloop.counter }}_head', 'letter_{{ forloop.counter }}_section');
+			{% endfor %}
+		});
+	</script>
+{% endblock %}
+
+{% block content %}
+	<h1>{% if heading %}{{ heading }}{% else %}Chord Sequences{% endif %}</h1>
+	{% if not hide_actions %}
+	<ul class="sequence_index_actions">
+		<li><a href="{% url apps.sequences.views.add_sequence %}">Add new sequence</a></li> |
+		<li><a href="{% url apps.sequences.views.notes_summary %}">Notes summary</a></li> |
+		<li><a href="{% url apps.sequences.views.omissions_summary %}">Omissions summary</a></li> |
+		<li><a href="{% url apps.sequences.views.skipped_sequences %}">Skipped sequences</a></li> | 
+		<li><a href="{% url apps.sequences.views.view_sequences %}">View all</a></li> | 
+	</ul>
+	{% endif %}
+	{% comment %}
+	<ol class="initial_index box">
+		{% for letter_group in sequences_by_letter %}
+			<li><a href="#{{ letter_group.0 }}">{{ letter_group.0 }}</a></li>{% if not forloop.last %} - {% endif %}
+		{% endfor %}
+	</ol>
+	{% endcomment %}
+	<ol class="sequence_list box">
+		{% for letter_group in sequences_by_letter %}
+			<h2><a name="{{ letter_group.0 }}" href="#" id="letter_{{ forloop.counter }}_head">{{ letter_group.0 }}</a></h2>
+			<div class="letter_group_count">({{ letter_group.1|length }})</div>
+			<div id="letter_{{ forloop.counter }}_section" class="letter_group_section">
+			{% for sequence in letter_group.1 %}
+				<li class="{% if sequence.analysis_omitted %}no_analysis{% endif %} {% if sequence.alternative %}alternative{% endif %}">
+					{% if sequence.alternative %}
+						<a href="{% url reannotate sequence.id %}">
+					{% else %}
+						<span class="reannotate"><a href="{% url start-reannotate sequence.id %}">New reannoation</a></span>
+						<a href="{% url apps.sequences.views.edit_sequence sequence.id %}">
+					{% endif %}
+					{{ sequence.song.name }} {% block sequence_info %}{% endblock %}
+					</a>
+					{% if sequence.description %}<div class="sequence_desc">{{ sequence.description }}</div>{% endif %}
+				</li>
+			{% endfor %}
+			</div>
+		{% endfor %}
+		<div class="clear"></div>
+	</ol>
+	{% block footer_info %}
+		{% if not hide_actions %}
+		<div class="box_bottom footer_info">
+			<a href="{% url apps.sequences.views.index_with_stats %}">Index with stats</a>
+		</div>
+		{% endif %}
+	{% endblock %}
+{% endblock %}

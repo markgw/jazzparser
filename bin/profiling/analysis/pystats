@@ -1,0 +1,18 @@
+#!/bin/bash
+# Script to start Python interpreter for analysing profiling results.
+# By default, loads the most recent profile output. To load another, give the filename as an argument.
+if [ -n "$1" ]; then
+	prof=$1
+else
+	prof="../profiles/profile.out"
+fi
+python -i -c "
+import pstats
+tmpstats = pstats.Stats('$prof')
+stats = pstats.Stats('$prof')
+print 'Loaded profile stats:'
+tmpstats.strip_dirs()
+print tmpstats.sort_stats('cumulative').print_stats(20)
+print tmpstats.sort_stats('time').print_stats(20)
+print 'Access them in the variable named \'stats\''
+"

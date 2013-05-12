@@ -1,0 +1,4 @@
+These are the results of applying different models to jazz data.
+They models are all applied to the same data.
+
+The haydn models are trained on haydn data and the jazz models on jazz data.

@@ -1,0 +1,5 @@
+These are the output of the Raphsto algorithm using the model "haydn", trained 
+solely on Haydn piano sonatas.
+
+It does quite a good job on the Haydn sonata, but, unsurprisingly, does terribly 
+on the other data.

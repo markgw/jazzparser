@@ -1,0 +1,84 @@
+##########################
+## Reannotation replacements for the conversion from v1.5 to v2.0 of the 
+##  grammar.
+## 4/3/10
+##########################
+
+### Lots of straight replacements of category names
+1a  : T
+1b  : T_III
+3a  : D
+3b  : D_Bd
+4a  : D_Tt
+4b  : Rep_Tt
+4c  : D_Btk
+# 4d never occurs: we're not replacing it with anything
+5   : S
+7a  : Pass_I
+7b  : D_Tt
+7c  : Dim_bVII
+7d  : Pass_VI
+7e  : D_Btk
+7f  : Dim_V
+7g  : Pass_bV
+7h  : D
+7i  : Dim_III
+7j  : Pass_bIII
+7k  : D_Bd
+7l  : Dim_bII
+8a  : D
+8b  : Aug_bII
+8c  : Aug_bVI
+10  : D_Bd
+
+### Special rules for replacing 2a chords
+# In general 1a 2a becomes T TC_IV
+# (by coincidence all cases of 1a 2a 0a have a dominant 0a)
+1a<2a  : TC_IV
+# Override this for the case of 1a 2a 1a
+1a<2a>1a : TC_IVR
+
+# Most cases of 0a 2a become T TC_IVR
+0a<2a  : T<TC_IVR
+# The only exception is 0a 2a 9c
+0a<2a>9c : T<TC_IV
+
+# The odd case of 9b 2a becomes T TC_IV
+9b<2a  : T<TC_IV
+
+### Special rules for 6 chords
+# Usually 1a 6 becomes T TC_II
+1a<6  : TC_II
+# When a 1a follows, we use TC_IIR
+1a<6>1a : TC_IIR
+
+# Don't know about these 7l 6 ones. They should be left blank, really
+7l<6 : 
+# Similarly 6 preceded by an unknown (the same sequences, in fact)
+<6  : 
+
+# Any cases of 0a 6 become T TC_IIR
+0a<6 : T<TC_IIR
+
+# 3a 6 1a is really wierd and needs reanalysis
+3a<6>1a : 
+
+### Special rules for 0a chords
+# These leave a few cases unhandled for manual handling later
+0a>3a  : Rep_D
+0a>7f  : Rep_D
+0a>7l  : Rep_D
+0a>4a  : Rep_D
+0a>11a : Rep_D
+0a>10  : Rep_D
+0a>4b  : Rep_D
+0a>1a  : Rep
+0a>1b  : Rep
+0a>3b  : Rep
+0a>9b  : Rep
+0a>5   : Rep_S
+# Note that 0a 0a doesn't get replaced. We need to run some multipass 
+#  rules to do these.
+
+# Don't bother with 2b: there are only a few, so deal with them manually
+# Not done anything about 9*s. Don't know what to do with them yet.

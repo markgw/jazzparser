@@ -1,0 +1,26 @@
+{% extends 'sequences/edit_sequence.html' %}
+
+{% block page_title %}{% if sequence.name %}Reannotate Sequence: {{ sequence.name }}{% else %}Add new sequence{% endif %} | {% endblock %}
+{% block heading %}Reannotate: {{ sequence.name }}{% endblock %}
+
+{% block container_class %}reannotator{% endblock %}
+
+{% block form_box %}
+	<label for="id_song">Song:</label>
+	<div class="fixed_input">{{ sequence.song.name }}</div>
+
+	<label for="id_song-key">Main key:</label>
+	<div class="fixed_input">{{ sequence.song.key }}</div>
+
+	<label for="id_bar_length">Bar length:</label>
+	<div class="fixed_input">{{ sequence.bar_length }}</div>
+	
+	<label for="id_description">Sequence description:</label>
+	<div class="fixed_input">{% if sequence.description %}{{ sequence.description }}{% else %}&nbsp;{% endif %}</div>
+	
+	<label for="id_source">Source:</label>
+	<div class="fixed_input">{{ sequence.source }}</div>
+	
+	<label for="id_analysis_omitted">Analysis omitted:</label>
+	<div class="fixed_input">{{ sequence.analysis_omitted }}</div>
+{% endblock %}

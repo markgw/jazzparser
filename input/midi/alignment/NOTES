@@ -1,0 +1,21 @@
+I've not finished the alignment process yet.
+
+In future, it will be possible to store alignment parameters along 
+with a midi file and referencing a chord sequence in the database, 
+so that a sequence can be immediately aligned with any midi files 
+that we have for it.
+
+In the meantime, I've been testing the alignment process by setting 
+the parameters on the command line. This was the command that I used 
+to align Afternoon in Paris with afternoon_in_paris-0.mid:
+
+./midialign.py ../../input/sequences:1 ../../input/midi/afternoon_in_paris-0.mid ../../input/midi/alignment/afternoon.mid --mbpb 1 --ss 122 --repeats 0,43,2
+
+That pulls it out of the SI file and sets the 3 parameters for 
+alignment. --mbpb 1 is the default. --ss 122 starts the chord sequence 
+a little after the first note in the midi file. --repeats 0,43,2 makes 
+the whole chord sequence get repeated twice (3 times in total), to 
+match the midi file.
+
+The sample output is in afternoon.mid, which has markers inserted for 
+the chords.

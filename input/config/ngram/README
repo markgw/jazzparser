@@ -1,0 +1,3 @@
+These config files are more or less historical. The ngram supertagger 
+has now been replaced by the ngram_multi supertagger, which can now 
+do everything the ngram supertagger did.

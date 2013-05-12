@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Running browser-based annotation tool"
+echo "Access the annotator at http://localhost:8080"
+./django-admin runserver 8080

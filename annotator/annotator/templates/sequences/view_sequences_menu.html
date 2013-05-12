@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block page_title %}View Sequences | {% endblock %}
+
+{% block content %}
+<h1>View Sequences</h1>
+<div class="box">
+	<p>Choose which query to use:</p>
+	<ul>
+		<li><a href="?show=1">All sequences (big page)</a></li>
+		<li><a href="?show=1&incomplete_annotations=1">Only incompletely annotated</a></li>
+	</ul>
+</div>
+{% endblock %}

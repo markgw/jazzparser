@@ -1,0 +1,21 @@
+This directory contains scripts relating to testing. There are two types of 
+testing represented here: unit tests and script tests.
+
+Unit tests use Python's unittest framework. They run tests on the code's 
+internal API, instantiating objects, calling methods, etc.
+
+The script tests run other scripts to check that they function correctly. 
+They don't do much (if any) checking of the output, but just check that no 
+errors are generated when the scripts run. The idea is to check that the 
+command-line API works and that the code handles the types of input it's 
+supposed to.
+
+Running
+=======
+A single script can be used to run the whole suite of tests: all_tests. Call:
+> ./all_tests
+and check the output in tests.out.
+
+Search the output file for lines beginning with "ERROR":
+> grep ERROR tests.out
+If nothing shows up, the tests all succeeded. Yay!

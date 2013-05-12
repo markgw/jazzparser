@@ -1,0 +1,9 @@
+#!/bin/bash
+# Exactly the same as ./jazzshell, but loads the cProfile profiler before running the script.
+# All profiling output goes to the file admin/profile.out.
+# Run admin/profiled to inspect the output.
+
+. `dirname $0`/setpath
+export PYTHONPATH=$here/../annotator/annotator:$here/../annotator/lib:$PYTHONPATH
+
+python -u -m cProfile -o $here/profiling/profiles/profile.out $*

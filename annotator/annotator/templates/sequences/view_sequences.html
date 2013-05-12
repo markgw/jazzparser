@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block page_title %}View Sequences | {% endblock %}
+
+{% block extra_head %}
+	<script src="{{ MEDIA_URL }}js/view_sequence.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		window.addEvent('domready', function() {
+			window.chordRoots = {{% for root_pair in chord_roots %}
+				{{ root_pair.0 }} : "{{ root_pair.1 }}"{% if not forloop.last %},{% endif %}{% endfor %}
+			};
+			window.chordTypes = {{% for type_pair in chord_types %}
+				{{ type_pair.0 }} : "{{ type_pair.1 }}"{% if not forloop.last %},{% endif %}{% endfor %}
+			};
+			window.categories = {{% for cat_pair in categories %}
+				"{{ cat_pair.0 }}" : "{{ cat_pair.1 }}"{% if not forloop.last %},{% endif %}{% endfor %}
+			};
+			window.pos_tags = [ {% for tag in pos_tags %}'{{ tag }}'{% if not forloop.last %}, {% endif %}{% endfor %} ];
+			// Initialize the chord editor
+			{% for seq in sequences %}
+				window.chordEditor{{ seq.0.id }} = new ChordViewer('chord_editor_{{ seq.0.id }}', {{ seq.2|safe }});
+			{% endfor %}
+		});
+	</script>
+{% endblock %}
+
+{% block content %}
+<div id="chord_editor" class="view_sequences">
+{% for seq in sequences %}
+	<div class="box">
+		<h1>{{ seq.0.name }}</h1>
+		<div class="sequence_viewer" id="chord_editor_{{ seq.0.id }}">
+			<div id="chord_editor_{{ seq.0.id }}_chords"></div>
+		</div>
+		<input type="hidden" name="chords" id="chord_editor_{{ seq.0.id }}_data" value='{{ seq.1|safe }}'/>
+	</div>
+{% endfor %}
+</div>
+{% endblock %}

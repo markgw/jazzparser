@@ -1,0 +1,5 @@
+These files are used for unit testing.
+
+Since the actual input data might change or get moved around, it's not 
+a great idea to use that for unit tests, so these are small sample inputs
+in various formats that can be used in the tests.

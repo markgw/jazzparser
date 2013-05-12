@@ -1,0 +1,34 @@
+##########################
+## Reannotation replacements for the conversion from v2 to v3.0 of the 
+##  grammar.
+## 14/3/11
+##########################
+
+### Lots of straight replacements of category names
+Rep : T_Rep
+Rep_Aug_VI : Aug_VI_Rep
+Rep_Aug_bII : Aug_bII_Rep
+Rep_D : D_Rep
+Rep_D_Bd : D_Bd_Rep
+Rep_D_Btk : D_Btk_Rep
+Rep_D_Tt : D_Tt_Rep
+Rep_Dim_III : Dim_III_Rep
+Rep_Dim_V : Dim_V_Rep
+Rep_Dim_bII : Dim_bII_Rep
+Rep_Dim_bVII : Dim_bVII_Rep
+Rep_III : T_III_Rep
+Rep_Pass_I : Pass_I_Rep
+Rep_Pass_VI : Pass_VI_Rep
+Rep_Pass_bIII : Pass_bIII_Rep
+Rep_Pass_bV : Pass_bV_Rep
+Rep_S : S_Rep
+Rep_S_bIII : S_bIII_Rep
+Rep_bVI : T_bVI_Rep
+TC_II : TC_IIb
+TC_IV : TC_IVb
+V_IV_I : TC_IV
+
+# These two require a bit more manipulation, but they don't occur 
+#  all that often, I'll just sort them out manually
+# TC_IIR 
+# TC_IVR

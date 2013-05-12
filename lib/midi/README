@@ -1,0 +1,20 @@
+===============
+| Python MIDI |
+|   pymidi2   |
+===============
+
+This is a midi file handling package for Python based on that written 
+by Giles Hall. See http://sourceforge.net/projects/pymidi/ for details 
+of the original package.
+This is now developed as the open-source library Pymidi2.
+
+No documentation was provided for the original package, but the 
+interface is straightforward. I have modified the library to fix some 
+bugs, restructure the code quite a bit and add more code, particularly 
+to do with system exclusive (mainly tuning) events.
+
+I have offered my modified version of the library to Giles and hope 
+that it may be incorporated into the Sourceforge project. In the 
+meantime, this is my own much-improved branch of the package.
+
+Mark Granroth-Wilding, 2011

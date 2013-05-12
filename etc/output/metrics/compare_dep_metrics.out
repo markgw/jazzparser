@@ -1,0 +1,382 @@
+[mark ~/work/jazzparser/bin/analysis]$ ./compare_dep_metrics.py ../../etc/output/pcfg/bigram_test/output-bigram-test-*
+Read 76 files with a gold result for evaluation
+Coverage: 96.05%
+../../etc/output/pcfg/bigram_test/output-bigram-test-10
+Exact recovery (deprec): 0.683
+Maximal alignment (deps): 0.748
+Maximizing overestimated f-score by: 0.065
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-100
+Exact recovery (deprec): 0.875
+Maximal alignment (deps): 0.875
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-103
+Exact recovery (deprec): 0.922
+Maximal alignment (deps): 0.922
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-104
+Exact recovery (deprec): 0.939
+Maximal alignment (deps): 0.939
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-107
+Exact recovery (deprec): 0.759
+Maximal alignment (deps): 0.759
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-108
+Exact recovery (deprec): 1.000
+Maximal alignment (deps): 1.000
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-111
+Exact recovery (deprec): 0.632
+Maximal alignment (deps): 0.737
+Maximizing overestimated f-score by: 0.105
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-115
+Exact recovery (deprec): 1.000
+Maximal alignment (deps): 1.000
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-12
+Exact recovery (deprec): 0.661
+Maximal alignment (deps): 0.777
+Maximizing overestimated f-score by: 0.116
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-13
+Exact recovery (deprec): 0.667
+Maximal alignment (deps): 0.667
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-14
+Exact recovery (deprec): 0.901
+Maximal alignment (deps): 0.901
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-16
+Exact recovery (deprec): 0.970
+Maximal alignment (deps): 0.970
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-17
+Exact recovery (deprec): 0.545
+Maximal alignment (deps): 0.747
+Maximizing overestimated f-score by: 0.202
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-18
+Exact recovery (deprec): 0.408
+Maximal alignment (deps): 0.531
+Maximizing overestimated f-score by: 0.122
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-19
+Exact recovery (deprec): 0.606
+Maximal alignment (deps): 0.788
+Maximizing overestimated f-score by: 0.182
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-2
+Exact recovery (deprec): 0.000
+Maximal alignment (deps): 0.000
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-21
+Exact recovery (deprec): 0.821
+Maximal alignment (deps): 0.855
+Maximizing overestimated f-score by: 0.034
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-22
+Exact recovery (deprec): 0.882
+Maximal alignment (deps): 0.961
+Maximizing overestimated f-score by: 0.078
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-28
+Exact recovery (deprec): 0.966
+Maximal alignment (deps): 0.966
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-30
+Exact recovery (deprec): 0.897
+Maximal alignment (deps): 0.897
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-31
+Exact recovery (deprec): 0.706
+Maximal alignment (deps): 0.794
+Maximizing overestimated f-score by: 0.088
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-32
+Exact recovery (deprec): 0.771
+Maximal alignment (deps): 0.771
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-33
+Exact recovery (deprec): 1.000
+Maximal alignment (deps): 1.000
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-34
+Exact recovery (deprec): 0.514
+Maximal alignment (deps): 0.622
+Maximizing overestimated f-score by: 0.108
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-35
+Exact recovery (deprec): 0.714
+Maximal alignment (deps): 0.714
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-36
+Exact recovery (deprec): 0.875
+Maximal alignment (deps): 0.938
+Maximizing overestimated f-score by: 0.062
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-37
+Exact recovery (deprec): 0.909
+Maximal alignment (deps): 0.909
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-38
+Exact recovery (deprec): 1.000
+Maximal alignment (deps): 1.000
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-4
+Exact recovery (deprec): 0.943
+Maximal alignment (deps): 0.943
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-41
+Exact recovery (deprec): 0.883
+Maximal alignment (deps): 0.883
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-42
+Exact recovery (deprec): 0.876
+Maximal alignment (deps): 0.895
+Maximizing overestimated f-score by: 0.019
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-43
+Exact recovery (deprec): 0.818
+Maximal alignment (deps): 0.818
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-44
+Exact recovery (deprec): 0.909
+Maximal alignment (deps): 0.909
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-45
+Exact recovery (deprec): 0.828
+Maximal alignment (deps): 0.828
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-46
+Exact recovery (deprec): 0.750
+Maximal alignment (deps): 0.750
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-47
+Exact recovery (deprec): 0.667
+Maximal alignment (deps): 0.833
+Maximizing overestimated f-score by: 0.167
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-48
+Exact recovery (deprec): 0.875
+Maximal alignment (deps): 0.925
+Maximizing overestimated f-score by: 0.050
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-49
+Exact recovery (deprec): 0.916
+Maximal alignment (deps): 0.916
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-51
+Exact recovery (deprec): 0.958
+Maximal alignment (deps): 0.958
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-52
+Exact recovery (deprec): 0.778
+Maximal alignment (deps): 0.826
+Maximizing overestimated f-score by: 0.048
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-53
+Exact recovery (deprec): 0.874
+Maximal alignment (deps): 0.897
+Maximizing overestimated f-score by: 0.023
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-54
+Exact recovery (deprec): 0.863
+Maximal alignment (deps): 0.863
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-55
+Exact recovery (deprec): 1.000
+Maximal alignment (deps): 1.000
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-56
+Exact recovery (deprec): 0.805
+Maximal alignment (deps): 0.805
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-57
+Exact recovery (deprec): 0.850
+Maximal alignment (deps): 0.850
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-58
+Exact recovery (deprec): 0.667
+Maximal alignment (deps): 0.667
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-60
+Exact recovery (deprec): 0.939
+Maximal alignment (deps): 0.980
+Maximizing overestimated f-score by: 0.041
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-62
+Exact recovery (deprec): 0.879
+Maximal alignment (deps): 0.879
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-63
+Exact recovery (deprec): 0.938
+Maximal alignment (deps): 0.963
+Maximizing overestimated f-score by: 0.025
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-64
+Exact recovery (deprec): 0.604
+Maximal alignment (deps): 0.679
+Maximizing overestimated f-score by: 0.075
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-65
+Exact recovery (deprec): 0.371
+Maximal alignment (deps): 0.571
+Maximizing overestimated f-score by: 0.200
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-66
+Exact recovery (deprec): 0.714
+Maximal alignment (deps): 0.714
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-67
+Exact recovery (deprec): 0.000
+Maximal alignment (deps): 0.000
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-68
+Exact recovery (deprec): 0.842
+Maximal alignment (deps): 0.842
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-69
+Exact recovery (deprec): 0.522
+Maximal alignment (deps): 0.696
+Maximizing overestimated f-score by: 0.174
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-7
+Exact recovery (deprec): 0.711
+Maximal alignment (deps): 0.756
+Maximizing overestimated f-score by: 0.044
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-70
+Exact recovery (deprec): 0.753
+Maximal alignment (deps): 0.753
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-71
+Exact recovery (deprec): 0.800
+Maximal alignment (deps): 0.800
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-73
+Exact recovery (deprec): 0.642
+Maximal alignment (deps): 0.717
+Maximizing overestimated f-score by: 0.075
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-76
+Exact recovery (deprec): 0.333
+Maximal alignment (deps): 0.533
+Maximizing overestimated f-score by: 0.200
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-79
+Exact recovery (deprec): 0.000
+Maximal alignment (deps): 0.000
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-8
+Exact recovery (deprec): 0.933
+Maximal alignment (deps): 0.933
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-80
+Exact recovery (deprec): 1.000
+Maximal alignment (deps): 1.000
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-81
+Exact recovery (deprec): 0.922
+Maximal alignment (deps): 0.922
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-85
+Exact recovery (deprec): 0.947
+Maximal alignment (deps): 0.968
+Maximizing overestimated f-score by: 0.021
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-86
+Exact recovery (deprec): 0.733
+Maximal alignment (deps): 0.733
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-87
+Exact recovery (deprec): 0.921
+Maximal alignment (deps): 0.921
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-89
+Exact recovery (deprec): 0.659
+Maximal alignment (deps): 0.705
+Maximizing overestimated f-score by: 0.045
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-9
+Exact recovery (deprec): 0.647
+Maximal alignment (deps): 0.647
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-91
+Exact recovery (deprec): 0.444
+Maximal alignment (deps): 0.556
+Maximizing overestimated f-score by: 0.111
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-92
+Exact recovery (deprec): 0.848
+Maximal alignment (deps): 0.909
+Maximizing overestimated f-score by: 0.061
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-93
+Exact recovery (deprec): 0.753
+Maximal alignment (deps): 0.847
+Maximizing overestimated f-score by: 0.094
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-94
+Exact recovery (deprec): 0.972
+Maximal alignment (deps): 0.972
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-96
+Exact recovery (deprec): 0.712
+Maximal alignment (deps): 0.746
+Maximizing overestimated f-score by: 0.034
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-98
+Exact recovery (deprec): 0.759
+Maximal alignment (deps): 0.759
+Maximizing overestimated f-score by: 0.000
+
+../../etc/output/pcfg/bigram_test/output-bigram-test-99
+Exact recovery (deprec): 0.984
+Maximal alignment (deps): 0.984
+Maximizing overestimated f-score by: 0.000

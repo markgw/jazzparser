@@ -1,0 +1,8 @@
+This directory is to store any output that should be checked into the repository.
+
+Most of the time, when running scripts, it is not necessary to keep the output, 
+so it is normal to send it to PROJECT_ROOT/etc/tmp, whence it can be deleted 
+before the next iteration of the experiment is done. However, occasionally not 
+only an experiment's results, but its whole output is worth keeping, so it 
+can be reanalysed later.
+In these cases it should go in here.

@@ -1,0 +1,161 @@
+///////////////////////////////////////////
+// Various input chord sequences
+
+>>>>> 12-bar blues examples from Coker
+>>=Blues example 1
+     IM7         IV7          IM7           I7       IV7     IV7         IM7       IM7           V7         V7        IM7 IM7
+>>=Blues example 2
+     IM7         IV7          IM7        Vm7, I7   IV7     #IVo7         IM7        VI7         IIm7        V7        IM7 IM7
+>>=Blues example 3
+     IM7         IV7          IM7        Vm7, I7  IVM7    IVm7        IIIm7       VI7         IIm7        V7        IM7 IM7
+>>=Blues example 4
+     IM7     IIm7, #IIo7     IIIm7       Vm7, I7  IVM7 IVm7, bVII7 IIIm7      bIIIm7        IIm7        V7        IM7 IM7
+>>=Blues example 5
+     IM7     VII%7, III7   VIm7, II7   Vm7, I7  IVM7 IVm7, bVII7 bIIIM7 bIIIm7, bVI7    IIm7        V7        IM7 IM7
+>>=Blues example 6
+     IM7         IV7          IM7      bIIm7, bV7  IV7     #IVo7        IIIm7       VI7      IIm7, V7 bVIm7, bII7 IM7 IM7
+>>=Blues example 7 (with initial I)
+I,bII7, bV7 VII7, III7  VI7, II7    V7, I7   IV7     #IVo7        IIIm7      bIII7      bVIm7         bII7      IM7 IM7
+>>=Blues example 8
+     Im(6)       II%7, V7       Im(6)           I7       IVm(6)    IVm(6)        Im(6)       Im(6)          II%7          V7        Im(6) Im(6)
+>>=Blues example 9
+     Im(6)       II%7, V7        Im           V%7, I7    IV7     #IVo7         Im(6)  bIIIm7, bVI7    II%7          V7        Im(6) Im(6)
+
+
+
+>>>>> Rhythm changes A sections from Coker
+>>=Rhythm changes example 1
+IM7           | IIm7,  V7    | IM7           | IIm7,  V7    || IM7,   I7    | IVM7,  #IVo7   | V7            | IM7
+>>=Rhythm changes example 2
+IM7,  VIm7  | IIm7,  V7    | IM7,  VIm7  | IIm7,  V7    || Vm7,   I7    | IVM7,  IVm7  | IM7           | IM7
+>>=Rhythm changes example 3
+IM7           | IIm7,  #IIo7   | IIIm7,VI7   | IIm7,  V7    || Vm7,   I7    | IVM7,  #IVo7   | IM7           | IM7
+>>=Rhythm changes example 4
+IM7,  VI7   | bVI7,  V7    | IM7,  VI7   | bVI7,  V7    || Vm7,   I7    | IVM7,  IVm7  | IM7           | IM7
+>>=Rhythm changes example 5
+IM7,  bIII7 | II7,   bII7  | IM7,  bIII7 | II7,   bII7  || Vm7,   I7    | IVM7,  IVm7  | IM7           | IM7
+
+>>>>> Rhythm changes B sections (with initial and final Is) from Coker
+// These sequences should be played as B sections in rhythm changes, 
+//  so would be preceded and succeeded by A sections, which establish
+//  the key.
+>>=Rhythm changes Bi 1
+I | III7         | III7         | VI7         | VI7            | II7        | II7           | V7        | V7           | I
+>>=Rhythm changes Bi 2
+I | VIIm7        | III7         | IIIm7       | VI7            | VIm7       | II7           | IIm7      | V7           | I
+>>=Rhythm changes Bi 3
+I | III7         | IVm7,bVII7 | VI7         | bVIIm7,bIII7 | II7        | bIIIm7,bVI7 | V7        | bVIm7,bII7 | I
+>>=Rhythm changes Bi 4
+I | VIIm7,III7 | IVm7,bVII7 | IIIm7,VI7 | bVIIm7,bIII7 | VIm7,II7 | bIIIm7,bVI7 | IIm7,V7 | bVIm7,bII7 | I
+// "Type ii" in Coker
+>>=Rhythm changes Bii 1
+I | I7           | I7           | IVM7        | IVM7           | II7        | II7           | V7        | V7           | I
+>>=Rhythm changes Bii 2
+I | Vm7          | I7           | IVM7        | IVM7           | VIm7       | II7           | IIm7      | V7           | I
+
+>>>>> Various other standards
+>>=Solar (original)
+Im   Im  Vm7  I7  | IVM7 IVM7 IVm7 bVII7 | bIII bIIIm7,bVI7 bII II%7,V7
+>>=Solar (modified)
+Im   Im  Vm7  I7  | IVM7 IVM7 IVm7 bVII7 | bIII bIIIm7,bVI7 bII Im
+>>Autumn Leaves, A section (with initial I)
+//=Autumn Leaves A
+I | IVm7 bVII7 bIII7 bVI7 | II%7 V7 Im I
+>>=Blue and Sentimental, A section
+I,bVII7 VI7 | II7 V7 | II7 V7 | I
+>>=Blue and Sentimental, B section (with lead-in) 
+I I7 | IV IVo7 | I I7 | IV IVo7 | I V7 I
+>>=Blue and Sentimental, final B section
+I,bVII7 VI7 | II7 V7 | II7 V7 | I,VII7 bVII7,VI7 | II7 V7 | I
+>>=Embraceable You, A section
+I bIIIo7 IIm7,V7 IIIm7,VI7 | IIm7 II%7,V7 I
+>>=Embraceable You, B section (with lead-in)
+I VII%7,III7 | VIm,VIm7 #IV%7,VII7 IIIm,IIIm7 #Io7,Im(6) | VIIm7,III7 VIm7,II7 IIm7 V7 | I
+>>=Embraceable You, C section (with lead-in)
+I Vm7,I7 | IV VII%7,III7 VIm7 #IV%7,IVm7,bVII7 | I IVm7,bVII7,IIm7,V7 I
+>>=The Girl from Ipanema, A section
+IM7 II7 | IIm7,bII7 IM7,bII7 | IM7
+>>=The Girl from Ipanema, B section
+IM7 | #IM7 #IV7 | #Im7 VI7 | IIm7 bVII7 | IIIm7,VI(7+11) IIm7,V(7+11) | IM7
+>>=Here's That Rainy Day, A section
+I bIII7 bVI7 bII | IIm7 V7 I
+>>=Here's That Rainy Day, B section (with lead-in)
+I V7 I7 | IVm7 bVII7 bIII7 bVI7 | IIm7 V7 I,VI7 IIm7,V7 | I
+>>=Here's That Rainy Day, C section (with lead-in)
+I V7 I7 | IV IIm7, V7 IIIm7,VIm7 II7,bIIIo7 | IIm7 V7 I
+>>=The Joint is Jumpin', A section
+I,#Io7 IIm7,V7 I,#Io7 IIm7,V7 | I,I7 IV,IVo7 I,V7 I
+// Pennies from Heaven is split up here into A+A,B+C,A+B,D
+>>=Pennies from Heaven, A section (with final I)
+I,IIm7 IIIm7,bIIIo7 IIm7 V7 | I
+>>=Pennies from Heaven, A+B+C sections
+I,IIm7 IIIm7,bIIIo7 IIm7 V7 | Vm7 I7 IV IV | VIm7 II7 IIm7 V7 | I
+>>=Pennies from Heaven, A+B+D sections
+I,IIm7 IIIm7,bIIIo7 IIm7 V7 | Vm7 I7 IV    | IV7 bVII7 I VI7 | IIm7 II7,V7 I
+
+>>>>> Various other sequences
+>>=Hey Joe
+I7 bVI bIII bVII IV I I7
+>>=Rhythm Turnaround
+// This presents a similar problem to the opening of BC4 and of RC3.
+// Solving this will probably solve them.
+// Of course, it wouldn't work out of context, so I've added some context from RC3.
+IM7,bIIo7 | IIm7,bIIIo7 ||| III7,VI7 IIm7,V7 | I
+
+>>>>> Other Coker sequences
+>>=Coker App. D (10), without repeats
+I(6) I(6) IV7 IV7 II7 IIm7,V(7+5) I(6) I(6) || Vm7 I7 IV(6) IV(6) II7 II7 V7 V7 || I
+>>=Coker App. D (11), without repeats
+// This will take days to parse, leave it out for now
+//I(6) I(6) IV7 IV7 IIIm7 VI(7+5) IIm7,V7 I(6) I(6) || Vm7,I7 Vm7,I7 IVM7 IVM7 bVIIm7,bIIIm7 bVIIm7,bIIIm7 VIm7,II7 bVIm7,bII7 || I
+
+>>>>> Brick Book standards
+// Ain't Misbehavin' has the form AABA, with a different turnaround after each A.
+//  Here we omit the turnaround. The appropriate turnaround is prepended to the 
+//  B section.
+>>=Ain't Misbehavin', A
+I, VI7  IIm7, V7  I, III7  IV, bVII7 | IIIm7, VI7  IIm7, V7 | I
+>>=Ain't Misbehavin', B, with initial turnaround
+I, IVm(6)  IV, III7 | VIm IV7 VIm VI7 | V, III7 VIm7, II7 IIIm7 VI7 IIm7 V7 | I  
+// All of Me is of the form ABAC
+>>=All of Me, A+B
+I      VII%7 III7 | III%7 VI7 IIm     | VII%7 III7 VIm     | II(7+11)    IIm7 V7 | I
+>>=All of Me, A+C
+I      VII%7 III7 | III%7 VI7 IIm     | IV   bVII7 I VI7 | IIm7      V7        | I
+// Autumn Leaves' structure is incorrectly anotated in the Brick Book.
+//  It should be AABAc, where c is a coda on the last A section.
+>>= Autumn Leaves, A section (with inital key tonic)
+Im | IVm7 bVII7 bIII bVI | II%7 V7 Im
+>>= Autumn Leaves, B section (with preceding tonic)
+Im | II%7 V7 Im
+>>= Autumn Leaves, final A section (with coda)
+Im | IVm7 bVII7 bIII bVI | II%7 V7 Im, VIIo7 bVIIm7, bIII7 | bVI(7+9) V(7+9) Im
+// Beautiful Love has the form ABAB, with different turnarounds at the end of each B.
+//  Here we parse A, with each turnaround prepended, and B up to the turnarounds.
+//>>= Beautiful Love, A section (with first initial turnaround)
+
+>>>>> Extra blues sequences
+>>=1930s blues
+I7 IV7 I7 I7 | IV7 IV7 I7 I7 | II7 V7 I7 I7
+>>=Count Basie blues
+I7 IV7,#IVo7 I7 V7,I7 | IV7 #IVo7 I7 VI7 | IIm7 V7 I7 I7
+>>=Charlie Parker blues
+IM7 VII%7,III(b9) VIm7,bVI7 Vm7,I7 | IV7 IVm7,bVII7 IIIm7,VI7 bIIIm7,bVI7 | IIm7 V7 I I
+>>=Bebep blues (with final I)
+I7 IV7 I7 V7,I7 | IV7 #IVo7 I7 IIm7,VI7 | IIm7 V7 IIIm7,VI7 IIm7,V7,I
+>>=Tritone substitution blues (with final I)
+I7 IV7 I7 Vm7,I7 | IV7 #IVm7,VII7 I7,VII7 bVII7,VI7 | IIm7 V7,IV7 IIIm7,VI7 IIm7,V7,I
+
+>>>>> Non-Jazz sequences
+// These will need full modulation ambiguity
+>>=Piano Sonata 1 in F Minor, 1st Mvmnt, Beethoven, i
+Im Im V7 V7 Im V7 Im,II%7 V | Vm Vm Im IVm7 bVII7 bIII
+>>=Piano Sonata 1 in F Minor, 1st Mvmnt, Beethoven, ii (now in Ab major)
+I IIm,II7 V | IIm,II7 V IIm,II7 V | V7 V(b9),I V7 V(b9),I
+>>=Piano Sonata 1 in F Minor, 1st Mvmnt, Beethoven, iii (now in Ab major)
+I | V7 I,V I,#IVo7 V,#IVo7 | V,IVo7 I,IVo7 I,V I,V7 | I
+>>=Eight Short Predules and Fugues, I, Bach (abbreviated)
+// Full sequence:
+// I I | I IV | II V | III VI | II V | I #IVo7 | VIIm IIIm | VI II | V,II V,II | V I,V,I,V | IIsus4,II II,V,IIsus4,II | V V7,I
+// Abbreviated version:
+I IV | II V | III VI | II V | I #IVo7 | VIIm IIIm | VI II | V | II | V V7,I

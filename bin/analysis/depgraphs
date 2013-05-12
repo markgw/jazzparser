@@ -1,0 +1,34 @@
+#!/bin/bash
+# Generates dependency graphs for multiple parse results and compiles them 
+#  as Latex
+for filename in $*
+do
+    echo "### Processing $filename ###"
+    basefile=`basename $filename`
+    texfile=$basefile.tex
+    # Generate Latex for the dependency graphs
+    ./depgraph.py $filename --align-max --latex --latex-align >$texfile
+    
+    if [ $? -eq 1 ]
+    then
+        # No output generated: get rid of the Latex file and continue
+        echo "No graphs output: not producing any output"
+        rm $texfile
+    else
+        # Generated some Latex output: compile it
+        pdflatex -halt-on-error -interaction=batchmode $texfile
+        if [ $? -eq 1 ]
+        then
+            # Latex encountered an error
+            echo "Error compiling $texfile"
+            # Leave the texfile there to inspect it
+            rm $basefile.aux $basefile.log
+        else
+            # Run Latex again to get the tikz stuff right
+            pdflatex -halt-on-error -interaction=batchmode $texfile
+            rm $basefile.aux $basefile.log
+            echo "Output graphs to $basefile.pdf"
+        fi
+    fi
+    echo
+done

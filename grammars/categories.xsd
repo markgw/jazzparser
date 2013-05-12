@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+This version adapted for the Jazz Parser by Mark Wilding.
+Copyright (C) 2003-4 University of Edinburgh (Michael White) 
+$Revision: 1.9 $, $Date: 2004/10/05 11:01:40 $ 
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:annotation>
+  <xsd:documentation>
+    Elements and types for categories and feature structures.
+	
+	Jazz modifications:
+	  The following additions have been made to the original file so that it is 
+	  suitable for use in the Jazz Parser.
+	  - changed the type of data in the "type" attribute of atomcat from 
+		NMTOKEN to CHARDATA, so that #s are allowed (needed for chords).
+	  - rewritten semantics specification. Now lambda expressions.
+	  - no longer allow FSs, since I don't use them.
+	  I've also removed many of the elements that are not relevant for Jazz
+	  grammars.
+  </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:include schemaLocation="tokens.xsd"/>
+  
+  
+  <!-- categories -->
+  
+  <xsd:element name="category" abstract="true">
+    <xsd:annotation>
+    <xsd:documentation>
+      A category, either atomic or complex.
+    </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  
+  <xsd:element name="atomcat" substitutionGroup="category">
+    <xsd:annotation>
+    <xsd:documentation>
+      An atomic category.
+      Atomic categories must have a type, and may contain 
+      a feature structure and LF.
+      The possible LF predications are given by the "lamdaExpression" type in
+		lambda.xsd.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:attribute name="type" type="xsd:string" use="required">
+        <xsd:annotation>
+        <xsd:documentation>
+          The type of the category - rather like a chord name, e.g. "I(m)7"
+        </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute name="minor_class" type="xsd:integer">
+        <xsd:annotation>
+        <xsd:documentation>
+          To make the chord optionally minor, add the normal bracketed minor
+			to the category name (e.g. "I(m)") and set this to an integer 
+			index. Any other optional minors with this index within the
+			same category will be bound to be minor if and only if this
+			one is.
+		  The index 0 is reserved for optional minors dependent on the 
+			left-hand side of the category (i.e. the word). Any optional
+			minor indexed 0 will be bound to the "optional_minor" value 
+			of the word given in morph.xml.
+		  If no minor_class value is specified, it will default to "0", i.e.
+			bound to be equal to the word.
+        </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  
+  
+  <xsd:element name="complexcat" substitutionGroup="category">
+    <xsd:annotation>
+    <xsd:documentation>
+      A complex category, consisting of a target category, 
+      an argument stack, and an optional LF.
+      Since a complex cat is not curried, the target category will 
+      always be atomic.
+    </xsd:documentation>
+    </xsd:annotation>
+    
+    <xsd:complexType>
+      <xsd:sequence>
+        <!-- Target cat -->
+        <xsd:element ref="atomcat"/>
+        <!-- Arg stack -->
+		  <!-- Unlike in the OpenCCG grammars, we currently only allow
+			  simple functional categories - no dollars or anything like 
+			  that. -->
+        <xsd:element ref="slash"/>
+        <xsd:element ref="category"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  
+  
+  <!-- slash -->
+  
+  <xsd:element name="slash">
+    <xsd:annotation>
+    <xsd:documentation>
+      A slash in the definition of a complex category.
+      A slash has a direction, a mode and an ability; 
+      a variable can also be given for the mode, using the 
+      "varmodality" attribute.
+      For discussion, see Jason's dissertation, esp. Ch. 8 on 
+      the implementation; the dissertation is downloadable from 
+      http://www.iccs.inf.ed.ac.uk/~jmb/dissertation
+		
+		I haven't implemented abilities or varmodalities in the 
+		Jazz Parser yet.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:attribute name="dir">
+        <xsd:annotation>
+        <xsd:documentation>
+          The direction of the slash.
+          The direction can be forward (/), backward (\) or both (|).
+          Defaults to both.
+			
+			I haven't implemented both yet for the Jazz Parser.
+        </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="/"/>
+            <xsd:enumeration value="\"/>
+            <xsd:enumeration value="|"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="mode">
+        <xsd:annotation>
+        <xsd:documentation>
+          The mode of the slash.
+			These are not the same as NL modes. Currently there are
+			only two: cadential (c) and non-cadential (nothing).
+			Defaults to non-cadential.
+        </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="c"/>
+            <xsd:enumeration value=""/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="varmodality" type="xsd:NMTOKEN">
+        <xsd:annotation>
+        <xsd:documentation>
+          A variable over modalities.
+        </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+
+</xsd:schema>
+

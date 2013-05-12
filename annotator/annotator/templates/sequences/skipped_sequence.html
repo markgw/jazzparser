@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{% if sequence.name %}Edit Skipped Sequence: {{ sequence.name }}{% else %}Add new skipped sequence{% endif %} | {% endblock %}
+
+{% block content %}
+	<h1>{% if sequence.name %}Edit: {{ sequence.name }}{% else %}New skipped sequence{% endif %}</h1>
+	{% if form.non_field_errors %}
+		{{ form.non_field_errors }}
+	{% endif %}
+	<div id="skipped_form_container">
+		<form action="." method="post" class="standard_form" id="editor_form">
+			<div class="box">
+				{{ form.name.errors }}
+				{{ form.name.label_tag }}
+				{{ form.name }}
+				
+				{{ form.reason.errors }}
+				{{ form.reason.label_tag }}
+				{{ form.reason }}
+			</div>
+			<div class="actions">
+				<input type="submit" value="Save and exit" name="save_and_exit"/>
+				<input type="submit" value="Cancel" name="cancel"/>
+				{% if sequence.id %}
+				<div class="delete_sequence"><a href="{% url apps.sequences.views.delete_skipped_sequence sequence.id %}">Delete</a></div>
+				{% endif %}
+			</div>
+		</form>
+	</div>
+{% endblock %}

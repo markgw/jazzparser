@@ -1,0 +1,54 @@
+                                Chord
+D minor: VII   Dbdim  (bar 1)   
+D minor: VI    Bb     (bar 2)   1
+G minor: VI    Eb     (bar 4)   1
+F major: VI    Dm     (bar 7)   1
+Bb major: II   Cm     (bar 8)   1
+Bb major: V    F      (bar 9)   1
+Bb major: I    Bb     (bar 10)  1,d
+C minor: V     G      (bar 12)  1
+C minor: I     Cm     (bar 14)  1
+Bb major: II   Cm     (bar 17)
+Bb major: V    F      (bar 18)  1
+Bb major: I    Bb     (bar 22)  1
+C minor: VII   Bdim   (bar 23)  1
+Bb major: II   Cm     (bar 24)  1
+Bb major: V    F      (bar 25)  1
+Bb major: I    Bb     (bar 26)  1,d
+C minor: V     G      (bar 28)  1
+C minor: I     Cm     (bar 30)  1
+Bb major: II   Cm     (bar 33)
+Bb major: V    F      (bar 34)  1
+Bb major: I    Bb     (bar 38)  1
+Bb major: II   Cm     (bar 39)  1
+D minor: II    Edim   (bar 40)  1
+Eb major: V    Bb     (bar 41)  1
+Eb major: I    Eb     (bar 42)  1
+D minor: VI    Bb     (bar 46)  1
+G minor: III   Bbaug  (bar 49)  0
+F major: VII   Edim   (bar 50)  0
+F major: V     C      (bar 52)  1
+F major: I     F      (bar 54)  1
+Eb major: V    Bb     (bar 58)  1,d
+C minor: V     G      (bar 60)  1
+C minor: I     Cm     (bar 62)  1
+Bb major: IV   Eb     (bar 65)  1
+Bb major: III  Dm     (bar 67)  1
+G minor: IV    Cm     (bar 68)  1
+C minor: VII   Bdim   (bar 69)  1
+Bb major: II   Cm     (bar 70)  1
+Bb major: V    F      (bar 71)  1
+Bb major: I    Bb     (bar 72)  1,d
+B major: V     Gb     (bar 73)  1
+B major: I     B      (bar 74)  1
+Db minor: V    Ab     (bar 76)  1
+Db minor: I    Dbm    (bar 78)  1
+B major: IV    E      (bar 81)  1
+B major: III   Ebm    (bar 83)  1
+Ab minor: IV   Dbm    (bar 84)  1
+Db minor: VII  Cdim   (bar 85)  1
+B major: II    Dbm    (bar 86)  1
+B major: V     Gb     (bar 88)  1
+B major: I     B      (bar 91)  1
+B major: IV    E      (bar 94)  1
+B major: III   Ebm    (bar 96)  1

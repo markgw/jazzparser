@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Annotate Sequence: {{ sequence.name }} | {% endblock %}
+
+{% block extra_head %}
+	<script type="text/javascript">
+		window.addEvent('domready', function() {
+			{% if first_field %}
+			$('id_{{ first_field }}-category').focus()
+			{% endif %}
+		});
+	</script>
+{% endblock %}
+
+{% block content %}
+	<h1>Annotate: {{ sequence.name }}</h1>
+	{% if form.non_field_errors %}
+		{{ form.non_field_errors }}
+	{% endif %}
+	<div id="annotator_form_container">
+		<form action="." method="post" class="standard_form" id="annotator_form">
+			<div class="actions">
+				<input type="submit" value="Save" name="save"/>
+				<input type="submit" value="Save and exit" name="save_and_exit"/>
+				<input type="submit" value="Cancel" name="cancel"/>
+			</div>
+			<div class="box">
+				{{ form.name.errors }}
+				<label for="id_name">Name:</label>
+				{{ form.name }}
+				
+				{{ form.key.errors }}
+				<label for="id_key">Main key:</label>
+				{{ form.key }}
+				
+				{{ form.bar_length.errors }}
+				<label for="id_bar_length">Bar length:</label>
+				{{ form.bar_length }}
+				
+				{{ form.first_chord }}
+			</div>
+			<div class="annotator_container box">
+			<div class="annotator_scroller">
+				<div id="annotator" style="width: {{ annotator_width }}px;">
+					{% for cf in chord_forms %}
+						<div class="chord" style="width: {{ cf.layout_width }}px;">
+							<div class="duration line">({{ cf.chord.duration }} beats)</div>
+							<div class="chord_name line"><span>{{ cf.chord }}</span></div>
+							<div class="previous_tag line"><div class="label">Assigned:</div>{{ cf.chord.category }}</div>
+							<div class="auto_tag line"><div class="label">Suggested:</div>{{ cf.auto_tag }}</div>
+							<div class="new_tag line">{{ cf.category }}</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			</div>
+			<div class="box notes">
+				<label for="id_notes">Notes</label>
+				{{ form.notes }}
+			</div>
+			<div class="box omissions">
+				<label for="id_omissions">Omissions</label>
+				{{ form.omissions }}
+			</div>
+			<div class="actions">
+				<input type="submit" value="Save" name="save" accesskey="s"/>
+				<input type="submit" value="Save and exit" name="save_and_exit"/>
+				<input type="submit" value="Cancel" name="cancel"/>
+				{% if sequence.id %}
+				<div class="delete_sequence"><a href="{% url apps.sequences.views.delete_sequence sequence.id %}">Delete</a></div>
+				{% endif %}
+			</div>
+		</form>
+	</div>
+{% endblock %}

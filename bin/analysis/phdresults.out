@@ -1,0 +1,243 @@
+###################################
+# PhD thesis experimental results #
+###################################
+
+>>>>>>>>> Chord parsing <<<<<<<<<<<
+*** HmmPath (TSED) ***
+Evaluating precision, recall and f-score on tsed
+Read 76 files with a gold result for evaluation
+Coverage: 100.00%
+Tsed precision: 77.438187%
+Tsed recall: 84.870154%
+F-score: 80.984019%
+Average parse time: 0:00:03.026974 (0:00:01.026441)
+Parses timed out: 0/76
+
+
+*** PCCG (TSED) ***
+Evaluating precision, recall and f-score on tsed
+Read 76 files with a gold result for evaluation
+Coverage: 97.37%
+Tsed precision: 92.292645%
+Tsed recall: 88.784343%
+F-score: 90.504508%
+Average parse time: 0:34:17.220405 (1:15:23.056840)
+Parses timed out: 1/76
+
+Stratified shuffling for significance of difference between PCCG and HmmPath
+Baseline f-score:    80.98 (model 1)
+ Baseline recall:    84.87 (model 1)
+ Baseline precision: 77.44 (model 1)
+Result f-score:      90.50 (model 2)
+ Result recall:      88.78 (model 2)
+ Result precision:   92.29 (model 2)
+Preparing 100000 shuffles...
+F-score:   p = 9.9999e-06 *  (0/100000)
+Precision: p = 9.9999e-06 *  (0/100000)
+Recall:    p = 6.6039e-02    (6603/100000)
+
+
+*** St+PCCG (TSED) ***
+Evaluating precision, recall and f-score on tsed
+Read 76 files with a gold result for evaluation
+Coverage: 100.00%
+Tsed precision: 90.179225%
+Tsed recall: 92.792623%
+F-score: 91.467260%
+Average parse time: 0:09:22.998421 (0:33:32.339634)
+Parses timed out: 0/76
+
+Stratified shuffling for significance of difference between St+PCCG and HmmPath
+Baseline f-score:    80.98 (model 1)
+ Baseline recall:    84.87 (model 1)
+ Baseline precision: 77.44 (model 1)
+Result f-score:      91.47 (model 2)
+ Result recall:      92.79 (model 2)
+ Result precision:   90.18 (model 2)
+Preparing 100000 shuffles...
+F-score:   p = 9.9999e-06 *  (0/100000)
+Precision: p = 9.9999e-06 *  (0/100000)
+Recall:    p = 9.9999e-06 *  (0/100000)
+
+
+Stratified shuffling for significance of difference between St+PCCG and PCCG
+Baseline f-score:    90.50 (model 1)
+ Baseline recall:    88.78 (model 1)
+ Baseline precision: 90.18 (model 2)
+Result f-score:      91.47 (model 2)
+ Result recall:      92.79 (model 2)
+ Result precision:   92.29 (model 1)
+Preparing 100000 shuffles...
+F-score:   p = 2.2728e-01    (22727/100000)
+Precision: p = 2.2550e-02 *  (2254/100000)
+Recall:    p = 5.7929e-02    (5792/100000)
+
+
+*** PCCG (DR) ***
+Evaluating precision, recall and f-score on deprec
+Read 76 files with a gold result for evaluation
+Coverage: 97.37%
+Dependency recovery precision: 90.258216%
+Dependency recovery recall: 86.827249%
+F-score: 88.509495%
+Average parse time: 0:34:17.220405 (1:15:23.056840)
+Parses timed out: 1/76
+
+
+*** St+PCCG (DR) ***
+Evaluating precision, recall and f-score on deprec
+Read 76 files with a gold result for evaluation
+Coverage: 100.00%
+Dependency recovery precision: 88.222385%
+Dependency recovery recall: 90.779074%
+F-score: 89.482471%
+Average parse time: 0:09:22.998421 (0:33:32.339634)
+Parses timed out: 0/76
+
+
+Stratified shuffling for significance of difference between St+PCCG and PCCG
+Baseline f-score:    88.51 (model 1)
+ Baseline recall:    86.83 (model 1)
+ Baseline precision: 88.22 (model 2)
+Result f-score:      89.48 (model 2)
+ Result recall:      90.78 (model 2)
+ Result precision:   90.26 (model 1)
+Preparing 100000 shuffles...
+F-score:   p = 2.3401e-01    (23400/100000)
+Precision: p = 7.5419e-02    (7541/100000)
+Recall:    p = 3.8740e-02 *  (3873/100000)
+
+Evaluate chord parsing results with ODR? [y/N]
+*** PCCG (ODR, for comparison) ***
+Evaluating precision, recall and f-score on optdeprec
+Read 76 files with a gold result for evaluation
+Coverage: 97.37%
+Dependency alignment precision: 91.431925%
+Dependency alignment recall: 87.956342%
+F-score: 89.660464%
+Average parse time: 0:34:17.220405 (1:15:23.056840)
+Parses timed out: 1/76
+
+*** St+PCCG (ODR, for comparison) ***
+Evaluating precision, recall and f-score on optdeprec
+Read 76 files with a gold result for evaluation
+Coverage: 100.00%
+Dependency alignment precision: 89.648866%
+Dependency alignment recall: 92.246895%
+F-score: 90.929327%
+Average parse time: 0:09:22.998421 (0:33:32.339634)
+Parses timed out: 0/76
+
+
+>>>>>>>>> MIDI parsing <<<<<<<<<<<
+*** HmmPath, pipeline (TSED) ***
+Evaluating precision, recall and f-score on tsed
+Read 41 files with a gold result for evaluation
+Coverage: 100.00%
+Tsed precision: 42.142857%
+Tsed recall: 46.153846%
+F-score: 44.057250%
+Average parse time: 0:01:02.839512 (0:00:21.472502)
+Parses timed out: 0/41
+
+*** HmmPath, lattice (TSED) ***
+Evaluating precision, recall and f-score on tsed
+Read 41 files with a gold result for evaluation
+Coverage: 100.00%
+Tsed precision: 40.224454%
+Tsed recall: 44.393742%
+F-score: 42.206384%
+Average parse time: 0:00:58.038293 (0:00:22.968009)
+Parses timed out: 0/41
+
+*** Cr+St+PCCG, pipeline (TSED) ***
+Evaluating precision, recall and f-score on tsed
+Read 41 files with a gold result for evaluation
+Coverage: 92.68%
+Tsed precision: 61.771058%
+Tsed recall: 55.932203%
+F-score: 58.706808%
+Average parse time: 1:22:41.172895 (1:42:41.793967)
+Parses timed out: 3/41
+
+Stratified shuffling for significance of difference between Cr+St+PCCG (pipeline) and HmmPath (pipeline)
+Baseline f-score:    44.06 (model 1)
+ Baseline recall:    46.15 (model 1)
+ Baseline precision: 42.14 (model 1)
+Result f-score:      58.71 (model 2)
+ Result recall:      55.93 (model 2)
+ Result precision:   61.77 (model 2)
+Preparing 100000 shuffles...
+F-score:   p = 9.9999e-06 *  (0/100000)
+Precision: p = 9.9999e-06 *  (0/100000)
+Recall:    p = 6.0199e-03 *  (601/100000)
+
+
+*** Cr+St+PCCG, lattice (TSED) ***
+Evaluating precision, recall and f-score on tsed
+Read 41 files with a gold result for evaluation
+Coverage: 90.24%
+Tsed precision: 64.167393%
+Tsed recall: 47.979140%
+F-score: 54.904886%
+Average parse time: 1:26:32.617568 (1:30:04.337186)
+Parses timed out: 4/41
+
+Stratified shuffling for significance of difference between Cr+St+PCCG (lattice) and HmmPath (pipeline)
+Baseline f-score:    44.06 (model 1)
+ Baseline recall:    46.15 (model 1)
+ Baseline precision: 42.14 (model 1)
+Result f-score:      54.90 (model 2)
+ Result recall:      47.98 (model 2)
+ Result precision:   64.17 (model 2)
+Preparing 100000 shuffles...
+F-score:   p = 9.9999e-06 *  (0/100000)
+Precision: p = 9.9999e-06 *  (0/100000)
+Recall:    p = 3.3573e-01    (33572/100000)
+
+Stratified shuffling for significance of difference between Cr+St+PCCG (lattice) and Cr+St+PCCG (pipeline)
+Baseline f-score:    54.90 (model 2)
+ Baseline recall:    47.98 (model 2)
+ Baseline precision: 61.77 (model 1)
+Result f-score:      58.71 (model 1)
+ Result recall:      55.93 (model 1)
+ Result precision:   64.17 (model 2)
+Preparing 100000 shuffles...
+F-score:   p = 1.7000e-03 *  (169/100000)
+Precision: p = 3.9630e-02 *  (3962/100000)
+Recall:    p = 9.9999e-06 *  (0/100000)
+
+
+Evaluate midi parsing results with ODR? [y/N]
+*** Cr+St+PCCG, pipeline (ODR) ***
+Evaluating precision, recall and f-score on optdeprec
+Read 41 files with a gold result for evaluation
+Coverage: 92.68%
+Dependency alignment precision: 58.038933%
+Dependency alignment recall: 52.477184%
+F-score: 55.118110%
+Average parse time: 1:22:41.172895 (1:42:41.793967)
+Parses timed out: 3/41
+
+*** Cr+St+PCCG, lattice (ODR) ***
+Evaluating precision, recall and f-score on optdeprec
+Read 41 files with a gold result for evaluation
+Coverage: 90.24%
+Dependency alignment precision: 61.028771%
+Dependency alignment recall: 45.632334%
+F-score: 52.219321%
+Average parse time: 1:26:32.617568 (1:30:04.337186)
+Parses timed out: 4/41
+
+Stratified shuffling for significance of difference between Cr+St+PCCG (lattice) and Cr+St+PCCG (pipeline) by ODR
+Baseline f-score:    52.22 (model 2)
+ Baseline recall:    45.63 (model 2)
+ Baseline precision: 58.04 (model 1)
+Result f-score:      55.12 (model 1)
+ Result recall:      52.48 (model 1)
+ Result precision:   61.03 (model 2)
+Preparing 100000 shuffles...
+F-score:   p = 2.4310e-02 *  (2430/100000)
+Precision: p = 1.8570e-02 *  (1856/100000)
+Recall:    p = 9.9999e-06 *  (0/100000)
+

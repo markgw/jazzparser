@@ -1,0 +1,8 @@
+#!/bin/bash
+# Exactly the same as ./jazzparser, but loads the cProfile profiler before running the script.
+# All profiling output goes to the file admin/profile.out.
+# Run admin/profiled to inspect the output.
+
+. `dirname $0`/setpath
+
+python -m cProfile -o profiling/profiles/profile.out ../src/jazzparser/parse.py $*

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<grammar name="jazz3.0"
+         formalism="music_halfspan" >
+  <lexicon file="lexicon.xml"/>
+  <morphology file="morph.xml"/>
+  <rules file="rules.xml"/>
+  <modalities file="modalities.xml"/>
+  
+  <!--
+    This is an upper bound on the number of categories theoretically 
+    possible given the formalism and this grammar's lexicon and rules. It is 
+    used by the models for smoothing. If it is too low, the model will 
+    not be valid, but the lower it can be set with good justification the 
+    better the smoothing will be.
+    
+    Atomic cats:   12x3 x 12
+    Backward cats: 12x12     (only tonics)
+    Forward cats:  12x36     (D res, D/D|T/T arg)
+                   12x36     (S res, S/S|T/T arg)
+                   12x12     (T res, T arg)
+                   ==========
+                   
+                   
+  -->
+  <attr name="max_categories" value="1584"/>
+</grammar>

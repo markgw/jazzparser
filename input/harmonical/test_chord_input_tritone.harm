@@ -1,0 +1,27 @@
+# Harmonical input file
+@format: chord
+@tempo: 80
+
+# Tune to a 440 A
+origin = 440
+# Move to a C
+origin = (1,-1,0)
+envelope = smooth
+
+equal_temperament = off
+# IIm7
+tones (2,0,-2) (3,0,-2) (0,0,0) (3,-1,-1) for 2
+# V7
+tones (-1,-1,0) (0,-1,0) (1,1,-1) (-1,0,1) for 2
+# IM7
+tones (0,0,-1) (1,0,-1) (1,1,-1) (0,1,0) for 4
+
+rest for 4
+
+equal_temperament = on
+# IIm7
+tones (2,0,-2) (3,0,-2) (0,0,0) (3,-1,-1) for 2
+# V7
+tones (-1,-1,0) (0,-1,0) (1,1,-1) (-1,0,1) for 2
+# IM7
+tones (0,0,-1) (1,0,-1) (1,1,-1) (0,1,0) for 4

@@ -1,0 +1,24 @@
+#!/bin/bash
+# $1 - descriptive text
+# $2 - script path
+# Rest of the args get passed to the script
+text=$1
+script=$2
+shift 2
+args=$*
+
+# Process option values
+text=`echo $text|fold -s -w 40 -|sed 's/^/**   /'`
+script=`readlink -m $script`
+
+echo "**=========================================="
+echo "** Testing script $script"
+echo "** Args: $args"
+echo "$text"
+echo "**=========================================="
+$script $args
+if [ $? -eq 0 ]; then
+	echo "** OK"
+else
+	echo "** ERROR: script exited with exit status $?"
+fi

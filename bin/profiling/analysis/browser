@@ -1,0 +1,9 @@
+#!/bin/bash
+# Script to start Pstats browser for analysing profiling results.
+# By default, loads the most recent profile output. To load another, give the filename as an argument.
+if [ -n "$1" ]; then
+	prof=$1
+else
+	prof="../profiles/profile.out"
+fi
+python -m pstats $prof

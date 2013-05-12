@@ -1,0 +1,12 @@
+# Run all the script tests in turn
+./start.sh
+echo
+./input.sh
+echo
+./taggers.sh
+echo
+./parsers.sh
+echo
+./output.sh
+echo
+./backoff/ngram.sh

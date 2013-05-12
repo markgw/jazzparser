@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Copyright (C) 2003-4 University of Edinburgh (Michael White) 
+$Revision: 1.11 $, $Date: 2007/03/19 21:57:43 $ 
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+  <xsd:documentation>
+    List of semantic functions allowed by this grammar's semantics.
+  </xsd:documentation>
+  </xsd:annotation>
+  
+  <xsd:element name="functions">
+    <xsd:annotation>
+        <xsd:documentation>
+          The root element: list of functions
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="function" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+	
+  <xsd:element name="function">
+    <xsd:annotation>
+        <xsd:documentation>
+          A named semantic function. The behaviour of these is defined in the code.
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:attribute name="name" type="token" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
+

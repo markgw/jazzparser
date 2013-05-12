@@ -1,0 +1,17 @@
+#!/bin/bash
+export PYTHONPATH=./annotator:./lib:../src:../lib:$PYTHONPATH
+export DJANGO_SETTINGS_MODULE=settings
+
+#if [[ -z "$SITE_ENV" ]]
+#then
+#	echo "SITE_ENV not set. Defaulting to 'dev'."
+#	export SITE_ENV=dev
+#fi
+if [[ "$1" = "run" ]]
+then
+	shift
+	python -u $*
+else
+	# Run django-admin from the django checkout
+	python lib/django/bin/django-admin.py $*
+fi

@@ -1,0 +1,10 @@
+This directory contains simplified versions of the midi corpus.
+
+The simplification has been performed using the simplify.py script in 
+bin/data/midi/. It puts all events in one track, one instrument and 
+removes most events that are not note-ons or note-offs.
+Channel distinctions were maintained to avoid confusion with multiple 
+simultaneous instances of the same note in different instruments.
+
+Simplification was performed with the command:
+for file in `ls -1 ../../../input/midi/corpus/*.mid`; do ./simplify.py -d -p -x -o -t -c --ch --mc --rno $file `dirname $file`/simple/`basename $file`; done

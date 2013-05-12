@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Grammatical rules that may be used during parsing -->
+<rules name="jazz3.0">
+    <application dir="forward"/>
+    <application dir="backward"/>
+
+    <composition dir="forward" harmonic="true"/>
+    <composition dir="backward" harmonic="true"/>
+
+    <development/>
+    <coordination/>
+
+    <!-- Unary rules that are only applied to generate the full lexicon
+       and not during parsing -->
+    <lexrules>
+        <tonicrepetition dir="forward" pos_suffix="_Rep"/>
+        <cadencerepetition dir="forward" pos_suffix="_Rep"/>
+    </lexrules>
+</rules>

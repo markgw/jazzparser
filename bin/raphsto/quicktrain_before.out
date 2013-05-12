@@ -1,0 +1,117 @@
+Reading in 1 midi files...
+0 /home/mark/work/jazzparser/input/corpora/raphael-stoddard/haydn_cmaj-input2.mid
+Training model 'quick' on 1 midis
+Beginning iteration 0
+Creating a pool of 1 processes
+Iteration 0, sequence 0
+Training data log prob: -330.229776052
+Beginning iteration 1
+Creating a pool of 1 processes
+Iteration 1, sequence 0
+Training data log prob: -280.02026333
+Log prob change: 50.209512723
+Beginning iteration 2
+Creating a pool of 1 processes
+Iteration 2, sequence 0
+Training data log prob: -268.614962061
+Log prob change: 11.4053012684
+Beginning iteration 3
+Creating a pool of 1 processes
+Iteration 3, sequence 0
+Training data log prob: -264.195562235
+Log prob change: 4.41939982635
+Beginning iteration 4
+Creating a pool of 1 processes
+Iteration 4, sequence 0
+Training data log prob: -262.343686338
+Log prob change: 1.85187589693
+Beginning iteration 5
+Creating a pool of 1 processes
+Iteration 5, sequence 0
+Training data log prob: -260.865735385
+Log prob change: 1.47795095257
+Beginning iteration 6
+Creating a pool of 1 processes
+Iteration 6, sequence 0
+Training data log prob: -259.860683459
+Log prob change: 1.00505192667
+Beginning iteration 7
+Creating a pool of 1 processes
+Iteration 7, sequence 0
+Training data log prob: -259.180148966
+Log prob change: 0.680534492991
+Beginning iteration 8
+Creating a pool of 1 processes
+Iteration 8, sequence 0
+Training data log prob: -258.776416243
+Log prob change: 0.403732722136
+Beginning iteration 9
+Creating a pool of 1 processes
+Iteration 9, sequence 0
+Training data log prob: -258.739976622
+Log prob change: 0.036439621284
+Beginning iteration 10
+Creating a pool of 1 processes
+Iteration 10, sequence 0
+Training data log prob: -258.772002575
+Log prob change: -0.0320259525707
+Beginning iteration 11
+Creating a pool of 1 processes
+Iteration 11, sequence 0
+Training data log prob: -258.765869889
+Log prob change: 0.00613268534397
+Beginning iteration 12
+Creating a pool of 1 processes
+Iteration 12, sequence 0
+Training data log prob: -258.759273627
+Log prob change: 0.00659626206829
+Beginning iteration 13
+Creating a pool of 1 processes
+Iteration 13, sequence 0
+Training data log prob: -258.754300828
+Log prob change: 0.0049727992955
+Beginning iteration 14
+Creating a pool of 1 processes
+Iteration 14, sequence 0
+Training data log prob: -258.749005967
+Log prob change: 0.00529486065983
+Beginning iteration 15
+Creating a pool of 1 processes
+Iteration 15, sequence 0
+Training data log prob: -258.727732922
+Log prob change: 0.0212730455699
+Beginning iteration 16
+Creating a pool of 1 processes
+Iteration 16, sequence 0
+Training data log prob: -258.549825158
+Log prob change: 0.177907764022
+Beginning iteration 17
+Creating a pool of 1 processes
+Iteration 17, sequence 0
+Training data log prob: -257.839706797
+Log prob change: 0.710118360476
+Beginning iteration 18
+Creating a pool of 1 processes
+Iteration 18, sequence 0
+Training data log prob: -257.24964686
+Log prob change: 0.590059936934
+Beginning iteration 19
+Creating a pool of 1 processes
+Iteration 19, sequence 0
+Training data log prob: -257.125947277
+Log prob change: 0.12369958346
+Beginning iteration 20
+Creating a pool of 1 processes
+Iteration 20, sequence 0
+Training data log prob: -257.113887915
+Log prob change: 0.0120593622109
+Beginning iteration 21
+Creating a pool of 1 processes
+Iteration 21, sequence 0
+Training data log prob: -257.112718534
+Log prob change: 0.00116938071886
+Beginning iteration 22
+Creating a pool of 1 processes
+Iteration 22, sequence 0
+Training data log prob: -257.112377735
+Log prob change: 0.00034079937177

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Edit Song</h1>
+	<div class="box">
+		<form class="standard_form" method="POST" action=".">
+			{% for field in form %}
+				{{ field.errors }}
+				{{ field.label_tag }}
+				{{ field }}
+			{% endfor %}
+			<div class="actions">
+				<input type="submit" value="Save" name="save" accesskey="s"/>
+				<input type="submit" value="Cancel" name="cancel"/>
+				{% if song.id %}
+				<div class="delete_sequence"><a href="{% url apps.sequences.views.delete_song song.id %}">Delete</a></div>
+				{% endif %}
+			</div>
+		</form>
+	</div>
+{% endblock %}

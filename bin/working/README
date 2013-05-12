@@ -1,0 +1,6 @@
+This directory is for temporary scripts. They are not designed to be 
+maintained as the code is developed, so probably won't work a while 
+after they've been written. However, often it's useful to store 
+scripts for a specific job where it's not worth writing some nice 
+generic re-usable script.
+

@@ -1,0 +1,26 @@
+#!/bin/bash
+# Get cmd line options
+outfile="tests.out"
+while getopts "o:" options; do
+	case $options in
+	o)
+		outfile=$OPTARG
+		;;
+	esac
+done
+# Convert outfile to absolute path
+outfile=`readlink -m $outfile`
+if [ -f $outfile ]
+then
+	rm $outfile
+fi
+echo "Test output going to $outfile"
+
+echo "**** Running all unit tests..." >>$outfile
+cd unit/
+./all >>$outfile 2>>$outfile
+
+echo -e "\n" >>$outfile
+echo "**** Running all script tests..." >>$outfile
+cd ../scripts/
+./all >>$outfile 2>>$outfile

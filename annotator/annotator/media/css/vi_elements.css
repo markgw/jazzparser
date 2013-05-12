@@ -1,0 +1,528 @@
+.clear {
+	clear: both;
+}
+
+.box {
+	background-color: #D9E7F2;
+	border: 1px solid #D2E0EA;
+	padding: 10px;
+	margin: 6px 0;
+}
+.box_bottom {
+	background-color: #CFE7E8;
+	border: 1px solid #D2E0EA;
+	padding: 10px;
+	margin-top: -6px;
+}
+
+.footer_info {
+	color: #888;
+	font-style: italic;
+	margin-bottom: 0;
+}
+.footer_info table {
+	margin-bottom: 0;
+}
+.footer_info td, 
+.footer_info th {
+	border: none;
+}
+.footer_info td {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.footer_info th {
+	font-style: italic;
+}
+.footer_info .total {
+	width: 200px;
+	border-top: 1px solid #888;
+}
+
+ol.sequence_list {
+}
+
+ol.sequence_list li:hover {
+	background-color: #D2E0EA;
+}
+
+ol.sequence_list li.no_analysis {
+	text-decoration: line-through;
+}
+
+ol.sequence_list a {
+	display: block;
+	padding: 4px 7px;
+	position: relative;
+}
+
+ol.sequence_list a div.sequence_desc {
+	font-size: 10px;
+	font-style: italic;
+	font-weight: normal;
+}
+
+ol.sequence_list li a .num_chords {
+	position: absolute;
+	left: 300px;
+	top: 4px;
+}
+
+ol.sequence_list li a .prop_annotated {
+	position: absolute;
+	left: 400px;
+	top: 4px;
+}
+
+ol.sequence_list h2 a {
+	width: 200px;
+	float: left;
+	clear: left;
+}
+
+ol.sequence_list h2 a:hover {
+	background-color: #D2E0EA;
+}
+
+ol.sequence_list div.letter_group_count {
+	float: left;
+	font-style: italic;
+	color: #555;
+	margin-top: 4px;
+	margin-left: 5px;
+}
+
+ol.sequence_list div.letter_group_section {
+	clear: both;
+}
+
+ol.sequence_list .reannotate {
+	float: right;
+	position: relative;
+	z-index: 10;
+	font-size: 0.9em;
+}
+
+ol.sequence_list li.alternative a {
+	color: #888;
+}
+
+ul.song_sequence_list {
+	margin-left: 30px;
+}
+ul.song_sequence_list li {
+	list-style-type: disc;
+}
+
+ol.initial_index {
+	padding-left: 14px;
+}
+ol.initial_index li {
+	display: inline;
+	margin-right: 6px;
+	margin-left: 6px;
+}
+
+.actions {
+	padding: 5px;
+	background-color: #CFE7E8;
+	border: 1px solid #D2E0EA;	
+}
+
+ul.sequence_index_actions {
+	padding: 10px;
+	background-color: #CFE7E8;
+	border: 1px solid #D2E0EA;
+}
+ul.sequence_index_actions li {
+	display: inline;
+	margin-right: 8px;
+	margin-left: 8px;
+}
+
+.delete_sequence {
+	float: right;
+	margin-top: 5px;
+	margin-right: 50px;
+}
+
+#editor_form,
+#editor_form_container {
+	position: relative;
+}
+
+#chord_editor {
+	position: relative;
+	min-height: 240px;
+	padding-bottom: 50px;
+}
+#editor_form #id_description {
+	width: 500px;
+}
+#editor_form p.note {
+	font-size: 9pt;
+	color: #666;
+	font-style: italic;
+	margin-top: 1px;
+	margin-bottom: 3px;
+}
+#editor_form #top_form {
+	/* We give this a constant height, becuase the chord editor needs 
+	 * its height set as a constant. If you change this, also change the 
+	 * vertical_offset of the chord editor.
+	 */
+	height: 240px;
+}
+#editor_form_container #editor_box {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #E0D8A3;
+	border: 1px solid #847F60;
+	width: 230px;
+	height: 245px;
+	overflow: visible;
+	z-index: 1000;
+	padding: 10px;
+	box-shadow: 0px 0px 8px #333;
+}
+#editor_form_container #editor_box #id_root,
+#editor_form_container #editor_box #id_type {
+	display: inline-block;
+	width: 70px;
+}
+#editor_form_container #editor_box #id_category {
+	width: 160px;
+}
+#editor_form_container #editor_box .field_container {
+	padding-top: 1px;
+}
+#editor_form_container #editor_box input {
+	width: 60px;
+}
+#editor_form_container #editor_box label {
+	width: 70px;
+}
+#editor_form_container #editor_box input[type=checkbox] {
+	margin-top: 8px;
+}
+#editor_form_container #editor_box .tree {
+	border: 1px solid black;
+	background-color: #E1DCBE;
+	margin-top: 6px;
+	padding: 0 5px;
+}
+#editor_form_container #editor_box .tree .field_container {
+	margin-top: -3px;
+}
+#editor_form_container #editor_box #save_chord_button {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+#editor_form_container #editor_pointer {
+	position: absolute;
+	top: -30px;
+	left: 5px;
+	width: 40px;
+	height: 30px;
+	background: transparent url(../img/editor_corner.png) no-repeat 5px 0px;
+}
+#editor_form_container #editor_box .chord_number {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	color: #847F60;
+}
+#editor_form_container #editor_box .chord_copier {
+	position: absolute;
+	bottom: 5px;
+	left: 10px;
+	font-size: 80%;
+	color: #847F60;
+}
+#editor_form_container #editor_box .chord_copier label,
+#editor_form_container #editor_box .chord_copier input {
+	display: inline;
+}
+#editor_form_container #editor_box .chord_copier input {
+	width: 30px;
+}
+#editor_form_container #editor_box .chord_copier label {
+	width: 30px;
+	float: none;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+#editor_form_container #editor_box .chord_copier label.copy_start_label {
+	width: 70px;
+}
+#editor_form_container #editor_box .close_button {
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	height: 18px;
+	width: 15px;
+	background-color: #B7CEB5;
+	display: block;
+	text-align: center;
+}
+#editor_form_container #editor_box .close_button:hover {
+	background-color: #B2C8B0;
+}
+
+#chord_editor .chord_box {
+	height: 50px;
+	border: 1px solid #B7CEB5;
+	margin: 1px;
+	overflow: hidden;
+	display: inline-block;
+	font-size: 80%;
+	position: relative;
+}
+#chord_editor .chord_box .chord_name {
+	position: absolute;
+	top: 3px;
+	left: 4px;
+}
+#chord_editor .chord_box .category_name {
+	position: absolute;
+	bottom: 3px;
+	left: 4px;
+	font-style: italic;
+}
+#chord_editor .chord_line {
+	display: block;
+	height: 66px;
+}
+#chord_editor div.add_after {
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	height: 14px;
+	width: 14px;
+	background-color: #B7CEB5;
+	display: block;
+}
+#chord_editor div.add_after:hover {
+	background-color: #B2C8B0;
+}
+#chord_editor div.add_after a {
+	display: block;
+	padding-left: 4px;
+}
+#chord_editor div.delete_chord {
+	position: absolute;
+	bottom: 1px;
+	right: 2px;
+	height: 14px;
+	width: 14px;
+	background-color: #B7CEB5;
+	display: block;
+}
+#chord_editor div.delete_chord:hover {
+	background-color: #B2C8B0;
+}
+#chord_editor div.delete_chord a {
+	display: block;
+	padding-left: 4px;
+}
+
+#chord_editor div.delete_chord {
+	position: absolute;
+	bottom: 1px;
+	right: 1px;
+	background-color: #B7CEB5;
+	display: block;
+}
+#chord_editor div.edit_chord:hover {
+	background-color: #B2C8B0;
+}
+#chord_editor div.edit_chord a {
+	display: block;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+#chord_editor .chord_box div.icon_box {
+	position: absolute;
+	bottom: 3px;
+	right: 20px;
+	height: 22px;
+}
+#chord_editor .chord_box div.icon_box img {
+	margin-left: 2px;
+	border: 1px solid #91A1AC;
+}
+
+.hover_box {
+	position: absolute;
+	background-color: #CFE7E8;
+	border: 1px solid #6F8594;
+	max-width: 100px;
+	display: none;
+	opacity: 0.7;
+	font-size: 70%;
+	padding: 2px 3px;
+	z-index: 1001;
+}
+
+
+#annotator_form .actions_fixed_width {
+	width: 845px;
+}
+#annotator_form .fixed_width {
+	width: 980px;
+}
+
+#annotator_form .annotator_container {
+	height: 120px;
+}
+#annotator_form .annotator_scroller {
+	height: 117px;
+	overflow: auto;
+}
+
+#annotator_form #annotator .chord {
+	height: 95px;
+	border: 1px solid #B7CEB5;
+	margin: 1px 1px 0 4px;
+	overflow: hidden;
+	float: left;
+	font-size: 84%;
+	position: relative;
+	background-color: rgb(199, 224, 197);
+}
+#annotator_form #annotator .chord div.line {
+	margin-top: 4px;
+	margin-left: 4px;
+}
+#annotator_form #annotator .chord div.label {
+	display: inline-block;
+	width: 70px;
+}
+#annotator_form #annotator .chord .chord_name span {
+	padding: 2px 4px;
+	font-size: 110%;
+}
+#annotator_form #annotator .chord .duration {
+	float: right;
+	margin-right: 4px;
+}
+#annotator_form #annotator .chord .previous_tag,
+#annotator_form #annotator .chord .auto_tag {
+	color: #555;
+	font-style: italic;
+}
+
+.errorlist li {
+	background-color: #b35;
+	color: white;
+	padding: 3px;
+	font-style: italic;
+}
+
+.notes textarea {
+	width: 800px;
+	height: 200px;
+}
+
+#edit_as_text_button {
+	float: right;
+}
+
+#text_chord_editor {
+	display: none;
+	padding: 10px;
+	z-index: 1500;
+	position: absolute;
+	top: 50px;
+	left: 40px;
+	background-color: #CFE7E8;
+	border: 1px solid #D2E0EA;
+}
+
+#text_chord_editor #text_chords {
+	width: 800px;
+	height: 500px;
+}
+
+ul.notes_list li {
+	border-bottom: 1px solid #D2E0EA;
+}
+
+ul.notes_list li.last {
+	border-bottom: none;
+}
+
+ul.notes_list a.edit_sequence {
+	font-size: 55%;
+	margin-left: 10px;
+}
+
+ul.notes_list a.show_notes {
+	font-size: 85%;
+	margin-left: 30px;
+}
+
+ul.notes_list div.omission_notes_container {
+	margin-bottom: 4px;
+}
+
+ul.notes_list div.omission_notes {
+	display: none;
+	margin: 5px;
+	background-color: #C2DCE1;
+	border: 1px solid #D2E0EA;
+	padding: 0px 6px;
+}
+
+ul.omission_list li a {
+	display: block;
+	padding: 4px 7px;
+}
+ul.omission_list li:hover {
+	background-color: #D2E0EA;
+}
+
+/************ Omissions table ************/
+.omissions_table {
+	background-color: white;
+	border: 1px solid #D2E0EA;
+	border-collapse: collapse;
+	margin-left: 0;
+}
+.omissions_table th {
+	font-style: italic;
+	text-align: center;
+	border: 1px solid #D2E0EA;
+	border-bottom: 2px solid #D2E0EA;
+	padding: 5px;
+}
+.omissions_table td {
+	border: 1px solid #D2E0EA;
+	padding: 3px;
+}
+
+.omissions_table .omissions_table_notes {
+	font-size: 80%;
+}
+
+/************** Chord sequence viewer ********/
+.view_sequences {
+	width: 1030px;
+}
+#chord_editor .sequence_viewer .chord_box {
+	font-size: 105%;
+}
+
+/****** Reannotator *******/
+.reannotator #editor_form #top_form {
+	height: 140px;
+}
+.fixed_input {
+	padding-top: 6px;
+}
+.reannotator #editor_form .add_after,
+.reannotator #editor_form .delete_chord {
+	display: none;
+}

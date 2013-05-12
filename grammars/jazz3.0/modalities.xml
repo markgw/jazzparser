@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+This file contains the hierarchy of modalities, which for this grammar 
+is very simple.
+-->
+<modalities 
+  name="jazz3.0">
+	<modality symbol=""/>
+	<modality symbol="c"/>
+</modalities>

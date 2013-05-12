@@ -1,0 +1,18 @@
+######################################################
+## Graphical annotator tool for chord sequence data ##
+######################################################
+
+This is a web-based, database-backed annotation tool for annotating chord 
+sequence data with grammatical analyses. If you just want to use the Jazz 
+Parser, this won't be of interest to you. 
+
+The tool can be run locally: 
+ $ ./django-admin runserver 8080
+and then accessed via a web browser at http://localhost:8080.
+
+The analyses are stored in a database and can be output to a format acceptable 
+for the Jazz Parser.
+
+There's also a Gtk graphical tool, which is mainly for associating MIDI 
+data with the sequences in the database. I never finished writing this, 
+so there are bits missing, but they're all provided by the web-based tool.

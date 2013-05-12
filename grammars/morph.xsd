@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Copyright (C) 2003 University of Edinburgh (Michael White) 
+$Revision: 1.9 $, $Date: 2004/12/07 12:00:39 $ 
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:annotation>
+  <xsd:documentation>
+    Schema for morph file.
+    
+    A morph file lists all the known word forms (morph items) together with 
+    their stems, parts of speech, semantic classes, associated macros, and 
+    excluded lexical categories.
+    
+    The part of speech is used to determine the mapping between morph 
+    items and lexical categories.  A morph item is automatically associated 
+    with all open families with matching parts of speech.
+  </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:include schemaLocation="categories.xsd"/>
+  
+  <xsd:element name="morph">
+    <xsd:annotation>
+    <xsd:documentation>
+      The root element, containing a list of entries (morph items) and macros.
+      Each macro must have a unique name.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="class" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="entry" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="class">
+    <xsd:annotation>
+    <xsd:documentation>
+      A class of words. Must be of the form
+		<class name="NAME" words="WORDS"/>
+	  where WORDS is a space-separated list of words in the class.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:attribute name="name" type="xsd:string" use="required"/>
+      <xsd:attribute name="words" type="listOfTokens" use="required"/>  
+    </xsd:complexType>
+  </xsd:element>
+		
+  <xsd:element name="entry">
+    <xsd:annotation>
+    <xsd:documentation>
+      A morph item, with its part of speech.
+		The item may specify a word directly or a class of chords. This 
+		must be one of the chord classes specified in the same file.
+		
+	  The optional_minor attribute may take values "major" or "minor" and
+		determines whether this word is considered major or minor for the
+		sake of resolving the optional minors in the lexical entry that 
+		depend on the word's minorness.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:attribute name="word" type="token"/>
+      <xsd:attribute name="class" type="token"/>
+      <xsd:attribute name="pos" type="token" use="required"/>
+	  <xsd:attribute name="optional_minor" type="token"/>
+    </xsd:complexType>
+  </xsd:element>
+
+</xsd:schema>
+

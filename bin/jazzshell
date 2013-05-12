@@ -1,0 +1,8 @@
+#!/bin/bash
+# Load standard path entries
+. `dirname $0`/setpath
+# In the shell it's also useful to have access to the annotator
+export PYTHONPATH=$here/../annotator/annotator:$here/../annotator/lib:$PYTHONPATH
+
+# Force the output for be unbuffered. It's annoying if it gets buffered and stderr and stdout get out of sync.
+python -u $*

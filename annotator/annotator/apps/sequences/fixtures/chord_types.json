@@ -1,0 +1,20 @@
+[
+	{"pk": 1, "model": "sequences.chordtype", "fields": {"symbol": "", "order": 1}},
+	{"pk": 2, "model": "sequences.chordtype", "fields": {"symbol": "m", "order": 3}}, 
+	{"pk": 3, "model": "sequences.chordtype", "fields": {"symbol": "M7", "order": 5}}, 
+	{"pk": 4, "model": "sequences.chordtype", "fields": {"symbol": "o7", "order": 6}},
+	{"pk": 5, "model": "sequences.chordtype", "fields": {"symbol": "%7", "order": 7}}, 
+	{"pk": 6, "model": "sequences.chordtype", "fields": {"symbol": "aug", "order": 11}},
+	{"pk": 7, "model": "sequences.chordtype", "fields": {"symbol": "m,b5", "order": 8}},
+	{"pk": 8, "model": "sequences.chordtype", "fields": {"symbol": "b5", "order": 13}},
+	{"pk": 9, "model": "sequences.chordtype", "fields": {"symbol": "m,M7", "order": 9}},
+	{"pk": 10, "model": "sequences.chordtype", "fields": {"symbol": "7", "order": 2}},
+	{"pk": 11, "model": "sequences.chordtype", "fields": {"symbol": "m7", "order": 4}},
+	{"pk": 12, "model": "sequences.chordtype", "fields": {"symbol": "aug7", "order": 12}},
+	{"pk": 13, "model": "sequences.chordtype", "fields": {"symbol": "b5,7", "order": 14}},
+	{"pk": 14, "model": "sequences.chordtype", "fields": {"symbol": "sus4", "order": 15}},
+	{"pk": 15, "model": "sequences.chordtype", "fields": {"symbol": "sus4,7", "order": 16}},
+	{"pk": 16, "model": "sequences.chordtype", "fields": {"symbol": "aug,M7", "order": 17}},
+	{"pk": 17, "model": "sequences.chordtype", "fields": {"symbol": "b5,M7", "order": 18}},
+	{"pk": 18, "model": "sequences.chordtype", "fields": {"symbol": "#5,m7", "order": 10}}
+]

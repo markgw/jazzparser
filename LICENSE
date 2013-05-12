@@ -1,0 +1,12 @@
+=======================
+=   The Jazz Parser   =
+= License information =
+=======================
+
+All of my own code in the Jazz Parser project is copyrighted and 
+licensed under the terms of the GNU General Public License, version 3.
+For the full terms of the license, see the file COPYING.
+
+Other people's code is included in lib and any small fragments of code 
+written by others used elsewhere is attributed where it is used. In all other 
+cases, code is my own and covered by the above license.

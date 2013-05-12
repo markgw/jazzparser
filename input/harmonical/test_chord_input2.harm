@@ -1,0 +1,28 @@
+# Harmonical input file
+@format: chord
+@tempo: 80
+
+# Tune to a 440 A
+origin = 440
+# Move to a C
+origin = (1,-1,-1)
+envelope = smooth
+
+
+# Major chord: JI, then ET
+equal_temperament = off
+tones (0,0,0) (1,0,0) (0,1,0) for 4
+rest for 1
+
+equal_temperament = on
+tones (0,0,0) (1,0,0) (0,1,0) for 4
+rest for 3
+
+
+# Minor chord: JI, then ET
+equal_temperament = off
+tones (0,0,0) (1,0,0) (1,-1,0) for 4
+rest for 1
+
+equal_temperament = on
+tones (0,0,0) (1,0,0) (1,-1,0) for 4

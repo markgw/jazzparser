@@ -1,0 +1,54 @@
+\documentclass[a4paper]{article}
+\usepackage{tikz-dependency}
+% You may need to set paperheight (for width) and paperwidth (for height) to get things to fit
+\usepackage[landscape,margin=1cm,paperheight=50cm]{geometry}
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\tikzstyle{every picture}+=[remember picture]
+% Commands we'll need for referencing nodes in different graphs
+\newcommand{\goldnode}[1]{dependency-gold-1-#1}
+\newcommand{\parsenode}[1]{dependency-parse-1-#1}
+\newcommand{\intnode}[1]{dependency-int-1-#1}
+\centering
+
+
+\fbox{\raggedright
+\textit{No gold standard for this song}
+}\vspace{20pt}
+
+\noindent Parse result\\[10pt]
+\begin{dependency}[theme = simple, dep id=dependency-parse]
+  \begin{deptext}[column sep=0.6em]
+    0 \& 1 \& 2 \& 3 \& 4 \& 5 \& 6 \& 7 \& 8 \& 9 \& 10 \& 11 \& 12 \& 13 \& 14 \& 15 \& 16 \& 17 \& 18 \& 19 \\
+  \end{deptext}
+    \deproot{1}{(3,0)}
+    \depedge{7}{2}{leftonto}
+    \depedge{6}{3}{leftonto}
+    \depedge{5}{4}{leftonto}
+    \depedge{6}{5}{leftonto}
+    \depedge{7}{6}{leftonto}
+    \depedge{8}{7}{leftonto}
+    \deproot{8}{(1,0)}
+    \depedge{10}{9}{leftonto}
+    \deproot{10}{(0,0)}
+    \depedge{12}{11}{rightonto}
+    \depedge{13}{12}{rightonto}
+    \deproot{13}{(2,0)}
+    \depedge{19}{14}{leftonto}
+    \depedge{18}{15}{leftonto}
+    \depedge{17}{16}{leftonto}
+    \depedge{18}{17}{leftonto}
+    \depedge{19}{18}{leftonto}
+    \depedge{20}{19}{leftonto}
+    \deproot{20}{(1,0)}
+\end{dependency}
+
+\vspace{15pt}
+
+\end{document}
+

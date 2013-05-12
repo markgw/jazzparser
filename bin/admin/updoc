@@ -1,0 +1,5 @@
+#!/bin/bash
+# Uploads the auto-generated documentation to my web server
+# Run ./makedoc to generate it first
+scp ../../doc/epydoc/* markwild@markandhanna.co.uk:~/www/jazzparser/api/
+

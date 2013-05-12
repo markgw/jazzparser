@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Copyright (C) 2003-4 University of Edinburgh (Michael White) 
+$Revision: 1.11 $, $Date: 2007/03/19 21:57:43 $ 
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:annotation>
+  <xsd:documentation>
+    Schema for lexicon file.
+    
+    The lexicon file contains the definitions of the lexical categories, 
+    whose entries are grouped into families (inspired by XTAG tree families).
+  </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:include schemaLocation="categories.xsd"/>
+  <xsd:include schemaLocation="lambda.xsd"/>
+  
+  
+  <xsd:element name="ccg-lexicon">
+    <xsd:annotation>
+    <xsd:documentation>
+      The root element, which includes the list of category families.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="family" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:unique name="familyNameUniqueness">
+      <xsd:selector xpath="family"/>
+      <xsd:field    xpath="@name"/>
+      <xsd:field    xpath="@pos"/>
+    </xsd:unique>
+  </xsd:element>
+	
+  <xsd:element name="family">
+    <xsd:annotation>
+    <xsd:documentation>
+      A category family, which groups lexical category entries, and optionally 
+      includes a list of the family members, if the family is closed.
+      
+      The name of the family must be unique.
+      
+      The part of speech ('pos') is used in the mapping between morphological 
+      items and families.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="entry" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="name" type="token" use="required"/>
+      <xsd:attribute name="pos" type="token" use="required"/>
+    </xsd:complexType>
+    <xsd:unique name="entryNameUniqueness">
+      <xsd:selector xpath="entry"/>
+      <xsd:field    xpath="@name"/>
+    </xsd:unique>
+  </xsd:element>
+
+  
+  <xsd:element name="entry">
+    <xsd:annotation>
+    <xsd:documentation>
+      An entry for a family, which contains the definition of a lexical category, 
+      and must have a name which is unique within the family.
+		
+	  Note: the active attribute will not do anything now. Maybe I will 
+		implement it in the future.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="category"/>
+        <xsd:element ref="lf"/>
+      </xsd:sequence>
+      <xsd:attribute name="name" type="token" use="required"/>
+      <xsd:attribute name="active" type="xsd:boolean"/>
+    </xsd:complexType>
+  </xsd:element>
+	
+  <xsd:element name="lf">
+	  <xsd:annotation>
+	  <xsd:documentation>
+	    The logical form associated with a lexical entry. Contains a single
+		  lambda expression.
+	  </xsd:documentation>
+	  </xsd:annotation>
+	  <xsd:complexType>
+		  <xsd:sequence>
+			  <xsd:element ref="lambdaExpression" minOccurs="1" maxOccurs="1"/>
+	      </xsd:sequence>
+	  </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
+

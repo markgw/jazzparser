@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+	<script src="{{ MEDIA_URL }}js/tools.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+	<h1>Skipped chord Sequences</h1>
+	<ul class="sequence_index_actions">
+		<li><a href="{% url apps.sequences.views.add_skipped_sequence %}">Add new skipped sequence</a></li>
+	</ul>
+	<ol class="sequence_list box">
+		{% for sequence in sequences %}
+			<li>
+				<a href="{% url apps.sequences.views.edit_skipped_sequence sequence.id %}">{{ sequence.name }}</a>
+			</li>
+		{% endfor %}
+	</ol>
+	<div class="box_bottom footer_info">
+		<table>
+			<tr class="total">
+				<th>Total:</th><td>{{ sequences|length }}</td>
+			</tr>
+		</table>
+	</div>
+{% endblock %}

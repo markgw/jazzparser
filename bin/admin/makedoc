@@ -1,0 +1,10 @@
+#!/bin/bash
+# Make Epydoc documentation for all Jazz Parser modules.
+# You'll need Epydoc installed to run this
+
+cd ../../src/
+. ../bin/setpath
+rm ../doc/epydoc/*
+# Get the current revision number
+REV=`svn info |grep Revision|sed -e 's/Revision: //'`
+epydoc --html -o ../doc/epydoc -n "The Jazz Parser (r$REV)" -u "http://jazzparser.granroth-wilding.co.uk/" $* jazzparser midi jptests && echo "Put Epydoc html in PROJECT/doc/epydoc/"

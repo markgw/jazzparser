@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+This file contains the lexical families.
+-->
+<ccg-lexicon 
+	name="jazz3.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="../lexicon.xsd">
+
+	<!-- ==================== Tonic chords ===================== -->
+	<family name="T" pos="T" chordfn="T">
+		<entry name="Primary">
+			<atomcat root="I"/>
+			<lf>
+				<list><point x="0" y="0" /></list>
+			</lf>
+		</entry>
+	</family>
+	<family name="T_III" pos="T_III" chordfn="T">
+		<entry name="Primary">
+			<atomcat root="bVI"/>
+			<lf>
+				<list><point x="0" y="2" /></list>
+			</lf>
+		</entry>
+	</family>
+	<family name="T_bVI" pos="T_bVI" chordfn="T">
+		<entry name="Primary">
+			<atomcat root="III"/>
+			<lf>
+				<list><point x="0" y="1" /></list>
+			</lf>
+		</entry>
+	</family>
+	
+	<!-- ==================== Dominant chords ===================== -->
+	<family name="D" pos="D" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="I[D]" dir="/" modality="c" arg="IV[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="D_Bd" pos="D_Bd" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="VI[D]" dir="/" modality="c" arg="II[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="D_Tt" pos="D_Tt" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="bV[D]" dir="/" modality="c" arg="VII[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="D_Btk" pos="D_Btk" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="bIII[D]" dir="/" modality="c" arg="bVI[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<!-- ==================== Subdominant chords ===================== -->
+	<family name="S" pos="S" chordfn="S">
+		<entry name="Primary">
+			<complexcat res="I[S]" dir="/" modality="c" arg="V[S|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<rightonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="S_bIII" pos="S_bIII" chordfn="S">
+		<entry name="Primary">
+			<complexcat res="VI[S]" dir="/" modality="c" arg="III[S|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<rightonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<!-- ==================== Passing dim7 chords ===================== -->
+	<family name="Pass_I" pos="Pass_I" chordfn="Pass">
+		<entry name="T">
+			<complexcat res="I[T]" dir="/" arg="I[T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<now/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+		<entry name="D">
+			<complexcat res="I[D]" dir="/" arg="I[D]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<now/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="Pass_VI" pos="Pass_VI" chordfn="Pass">
+		<entry name="T">
+			<complexcat res="VI[T]" dir="/" arg="VI[T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<now/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+		<entry name="D">
+			<complexcat res="VI[T]" dir="/" arg="VI[D]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<now/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="Pass_bV" pos="Pass_bV" chordfn="Pass">
+		<entry name="T">
+			<complexcat res="bV[T]" dir="/" arg="bV[T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<now/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+		<entry name="D">
+			<complexcat res="bV[D]" dir="/" arg="bV[D]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<now/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="Pass_bIII" pos="Pass_bIII" chordfn="Pass">
+		<entry name="T">
+			<complexcat res="bIII[T]" dir="/" arg="bIII[T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<now/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+		<entry name="D">
+			<complexcat res="bIII[D]" dir="/" arg="bIII[D]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<now/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<!-- ==================== Real dim7 chords ===================== -->
+	<family name="Dim_bVII" pos="Dim_bVII" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="IV[D]" dir="/" modality="c" arg="bVII[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="Dim_V" pos="Dim_V" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="II[D]" dir="/" modality="c" arg="V[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="Dim_III" pos="Dim_III" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="VII[D]" dir="/" modality="c" arg="III[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="Dim_bII" pos="Dim_bII" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="bVI[D]" dir="/" modality="c" arg="bII[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<!-- ==================== Augmented chords ===================== -->
+	<family name="Aug_bII" pos="Aug_bII" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="bVI[D]" dir="/" modality="c" arg="bII[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="Aug_VI" pos="Aug_VI" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="III[D]" dir="/" modality="c" arg="VI[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<!-- ==================== Tonic colouration chords: IVs ===================== -->
+	<family name="TC_IV" pos="TC_IV" chordfn="S">
+		<entry name="Primary">
+			<complexcat res="V[T]" dir="/" arg="V[T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<now/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	<family name="TC_IVb" pos="TC_IVb" chordfn="S">
+		<entry name="Primary">
+			<complexcat res="V[T]" dir="\" arg="V[T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<variable name="x"/>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+
+	<!-- ==================== Tonic colouration chords: IIs ===================== -->
+	<family name="TC_II" pos="TC_II" chordfn="S">
+		<entry name="Primary">
+			<complexcat res="bVII[T]" dir="/" arg="bVII[T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<now/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	<family name="TC_IIb" pos="TC_IIb" chordfn="S">
+		<entry name="Primary">
+			<complexcat res="bVII[T]" dir="\" arg="bVII[T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<variable name="x"/>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+
+	<!-- This is an odd substitution that we have a few examples of.
+		A IVm(6) is used at the end of a cadence in place of a V7. 
+		It can only happen at the end and the IV has to be minor. -->
+	<family name="D_IVm" pos="D_IVm" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="II[D]" dir="/" modality="c" arg="V[T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<variable name="x"/>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<!-- ====================== Sus4 chords ========================= -->
+	<!-- A Vsus4 chord (or alternatively a IV/V chord) can replace a 
+			IIm7 V7 pair. -->
+	<family name="Sus_II_V" pos="Sus_II_V" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="V[D]" dir="/" modality="c" arg="IV[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<application>
+							<leftonto/>
+							<variable name="x"/>
+						</application>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+	
+	<family name="SusAsIV_II_V" pos="SusAsIV_II_V" chordfn="D">
+		<entry name="Primary">
+			<complexcat res="VI[D]" dir="/" modality="c" arg="V[D|T]"/>
+			<lf>
+				<abstraction>
+					<variable name="x"/>
+					<application>
+						<leftonto/>
+						<application>
+							<leftonto/>
+							<variable name="x"/>
+						</application>
+					</application>
+				</abstraction>
+			</lf>
+		</entry>
+	</family>
+</ccg-lexicon>

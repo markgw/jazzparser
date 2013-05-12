@@ -1,0 +1,74 @@
+# Harmonical input file
+# Land of Hope and Glory melody, played:
+#  a. equally tempered
+#  b. justly intoned
+#  c. justly intoned with incorrect disambiguations
+@format: chord
+@tempo: 160
+
+# Tune to a 440 A
+origin = 440
+# Move to G
+origin = (2,-1,-1)
+envelope = smooth
+program = 0
+
+# The equally tempered version
+equal_temperament = on
+tones (0,0,0) for 2
+tones (0,0,0) for 2
+tones (1,1,-1) for 1
+tones (0,0,0) for 1
+tones (2,0,-1) for 2
+tones (-1,1,0) for 4
+tones (1,0,-1) for 4
+
+tones (-1,0,0) for 2
+tones (-1,0,0) for 2
+tones (0,1,-1) for 1
+tones (-1,0,0) for 1
+tones (1,0,-1) for 2
+tones (2,0,-2) for 4
+
+rest for 4
+
+
+# The justly intoned version
+equal_temperament = off
+tones (0,0,0) for 2
+tones (0,0,0) for 2
+tones (1,1,-1) for 1
+tones (0,0,0) for 1
+tones (2,0,-1) for 2
+tones (-1,1,0) for 4
+tones (1,0,-1) for 4
+
+tones (-1,0,0) for 2
+tones (-1,0,0) for 2
+tones (0,1,-1) for 1
+tones (-1,0,0) for 1
+tones (1,0,-1) for 2
+tones (2,0,-2) for 4
+
+rest for 4
+
+
+# The justly intoned version with mistakes
+tones (0,0,0) for 2
+tones (0,0,0) for 2
+tones (1,1,-1) for 1
+tones (0,0,0) for 1
+tones (2,0,-1) for 2
+# Wrong VI
+tones (3,0,-2) for 4
+tones (1,0,-1) for 4
+
+tones (-1,0,0) for 2
+tones (-1,0,0) for 2
+tones (0,1,-1) for 1
+tones (-1,0,0) for 1
+tones (1,0,-1) for 2
+# Wrong II
+tones (-2,1,0) for 4
+
+rest for 4

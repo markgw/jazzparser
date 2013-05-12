@@ -1,0 +1,130 @@
+# Harmonical input file
+# Examples of sevenths taken from CLH's Two Letters to a Musical Friend.
+# 1. The minor seventh, played
+#  a. equally tempered
+#  b. justly intoned
+#  c. justly intoned with the wrong interval (dom7)
+@format: chord
+@tempo: 120
+
+# Tune to a 440 A
+# We're in A minor
+origin = 440
+envelope = smooth
+program = 0
+
+# Equally tempered
+equal_temperament = on
+t (1,0,-1) for 1/2
+t (1,0,-1) for 1/2
+
+t (0,0,0) for 3/2
+t (0,0,0) for 1/2
+t (0,0,0) for 1/2
+t (2,0,-1) for 1/2
+
+t (1,-1,0) for 1
+t (2,0,-1) for 1
+t (0,0,0) for 1
+
+t (0,0,0) for 1/2
+t (2,-1,-1) for 1/2
+t (1,0,-1) for 1
+t (-1,0,0) for 1
+
+t (1,0,-1) for 2
+t (1,0,-1) for 1/2
+t (1,0,-1) for 1/2
+
+t (2,-1,-1) for 3/2
+t (2,-1,-1) for 1/2
+t (0,0,0) for 1/2
+t (2,-1,-1) for 1/2
+
+t (1,0,-1) for 1
+t (-1,0,0) for 1
+t (1,-1,-1) for 1
+
+t (-1,0,0) for 1 vol 99
+t (1,-1,0) for 1 vol 99
+t (2,0,-1) for 1
+
+t (0,0,0) for 2
+rest for 2
+
+# Justly intoned
+equal_temperament = off
+t (1,0,-1) for 1/2
+t (1,0,-1) for 1/2
+
+t (0,0,0) for 3/2
+t (0,0,0) for 1/2
+t (0,0,0) for 1/2
+t (2,0,-1) for 1/2
+
+t (1,-1,0) for 1
+t (2,0,-1) for 1
+t (0,0,0) for 1
+
+t (0,0,0) for 1/2
+t (2,-1,-1) for 1/2
+t (1,0,-1) for 1
+t (-1,0,0) for 1
+
+t (1,0,-1) for 2
+t (1,0,-1) for 1/2
+t (1,0,-1) for 1/2
+
+t (2,-1,-1) for 3/2
+t (2,-1,-1) for 1/2
+t (0,0,0) for 1/2
+t (2,-1,-1) for 1/2
+
+t (1,0,-1) for 1
+t (-1,0,0) for 1
+t (1,-1,-1) for 1
+
+t (-1,0,0) for 1 vol 99
+t (1,-1,0) for 1 vol 99
+t (2,0,-1) for 1
+
+t (0,0,0) for 2
+rest for 2
+
+# Justly intoned, wrong interval (dom7 instead of min7)
+equal_temperament = off
+t (1,0,-1) for 1/2
+t (1,0,-1) for 1/2
+
+t (0,0,0) for 3/2
+t (0,0,0) for 1/2
+t (0,0,0) for 1/2
+t (2,0,-1) for 1/2
+
+t (1,-1,0) for 1
+t (2,0,-1) for 1
+t (0,0,0) for 1
+
+t (0,0,0) for 1/2
+t (2,-1,-1) for 1/2
+t (1,0,-1) for 1
+t (-1,0,0) for 1
+
+t (1,0,-1) for 2
+t (1,0,-1) for 1/2
+t (1,0,-1) for 1/2
+
+t (2,-1,-1) for 3/2
+t (2,-1,-1) for 1/2
+t (0,0,0) for 1/2
+t (2,-1,-1) for 1/2
+
+t (1,0,-1) for 1
+t (-1,0,0) for 1
+t (1,-1,-1) for 1
+
+t (-1,0,0) for 1 vol 99
+t (-3,0,2) for 1 vol 99
+t (2,0,-1) for 1
+
+t (0,0,0) for 2

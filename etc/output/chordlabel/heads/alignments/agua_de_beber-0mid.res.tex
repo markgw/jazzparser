@@ -1,0 +1,77 @@
+\documentclass[a4paper]{article}
+\usepackage{tikz-dependency}
+% You may need to set paperheight (for width) and paperwidth (for height) to get things to fit
+\usepackage[landscape,margin=1cm,paperheight=50cm]{geometry}
+\pagestyle{empty}
+
+\title{Agua de beber}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle\thispagestyle{empty}\vspace{-20pt}
+
+\tikzstyle{every picture}+=[remember picture]
+% Commands we'll need for referencing nodes in different graphs
+\newcommand{\goldnode}[1]{dependency-gold-1-#1}
+\newcommand{\parsenode}[1]{dependency-parse-1-#1}
+\newcommand{\intnode}[1]{dependency-int-1-#1}
+\centering
+
+
+\fbox{\raggedright
+\textit{No successful parses}
+}\vspace{20pt}
+
+\noindent Gold standard\\[10pt]
+\begin{dependency}[theme = simple, dep id=dependency-gold]
+  \begin{deptext}[column sep=0.6em]
+    0 \& 1 \& 2 \& 3 \& 4 \& 5 \& 6 \& 7 \& 8 \& 9 \& 10 \& 11 \& 12 \& 13 \& 14 \& 15 \& 16 \& 17 \& 18 \& 19 \& 20 \& 21 \& 22 \& 23 \& 24 \& 25 \& 26 \& 27 \& 28 \& 29 \& 30 \& 31 \& 32 \& 33 \& 34 \& 35 \& 36 \& 37 \& 38 \& 39 \& 40 \\
+  \end{deptext}
+    \deproot{1}{(0,0)}
+    \depedge{3}{2}{leftonto}
+    \depedge{4}{3}{leftonto}
+    \deproot{4}{(0,0)}
+    \depedge{6}{5}{leftonto}
+    \depedge{7}{6}{leftonto}
+    \deproot{7}{(0,0)}
+    \depedge{9}{8}{leftonto}
+    \deproot{9}{(0,0)}
+    \depedge{11}{10}{leftonto}
+    \depedge{12}{11}{leftonto}
+    \deproot{12}{(0,0)}
+    \depedge{14}{13}{leftonto}
+    \depedge{15}{14}{leftonto}
+    \deproot{15}{(0,0)}
+    \depedge{17}{16}{leftonto}
+    \depedge{18}{17}{leftonto}
+    \deproot{18}{(0,0)}
+    \depedge{20}{19}{leftonto}
+    \depedge{21}{20}{leftonto}
+    \deproot{21}{(1,2)}
+    \depedge{23}{22}{leftonto}
+    \depedge{24}{23}{leftonto}
+    \deproot{24}{(0,0)}
+    \depedge{26}{25}{leftonto}
+    \depedge{27}{26}{leftonto}
+    \depedge{28}{27}{leftonto}
+    \depedge{29}{28}{leftonto}
+    \deproot{29}{(0,0)}
+    \depedge{31}{30}{rightonto}
+    \deproot{31}{(0,0)}
+    \depedge{33}{32}{rightonto}
+    \deproot{33}{(0,0)}
+    \depedge{35}{34}{leftonto}
+    \deproot{35}{(0,0)}
+    \depedge{37}{36}{leftonto}
+    \depedge{38}{37}{leftonto}
+    \deproot{38}{(0,0)}
+    \depedge{40}{39}{leftonto}
+    \depedge{41}{40}{leftonto}
+    \deproot{41}{(0,0)}
+\end{dependency}
+
+\vspace{15pt}
+
+\end{document}
+

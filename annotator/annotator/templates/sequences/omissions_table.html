@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Table of Omissions in Sequences | {% endblock %}
+
+{% block content %}
+	<h1>Analysis Omissions in Chord Sequences</h1>
+	<table class="omissions_table">
+		<tr><th>Name</th><th>Omissions</th><th>Notes</th></tr>
+		{% for sequence in sequences %}
+		<tr>
+			<td>{{ sequence.name }}</td>
+			<td>{{ sequence.omissions|linebreaks }}</td>
+			<td class="omissions_table_notes">{{ sequence.notes|linebreaks }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

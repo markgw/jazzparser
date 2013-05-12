@@ -1,0 +1,73 @@
+\documentclass[a4paper]{article}
+\usepackage{tikz-dependency}
+% You may need to set paperheight (for width) and paperwidth (for height) to get things to fit
+\usepackage[landscape,margin=1cm,paperheight=50cm]{geometry}
+\pagestyle{empty}
+
+\title{All blues}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle\thispagestyle{empty}\vspace{-20pt}
+
+\tikzstyle{every picture}+=[remember picture]
+% Commands we'll need for referencing nodes in different graphs
+\newcommand{\goldnode}[1]{dependency-gold-1-#1}
+\newcommand{\parsenode}[1]{dependency-parse-1-#1}
+\newcommand{\intnode}[1]{dependency-int-1-#1}
+\centering
+
+
+\noindent Gold standard\\[10pt]
+\begin{dependency}[theme = simple, dep id=dependency-gold]
+  \begin{deptext}[column sep=0.6em]
+    0 \& 1 \& 2 \& 3 \& 4 \& 5 \& 6 \& 7 \& 8 \\
+  \end{deptext}
+    \deproot{1}{(0,0)}
+    \depedge{3}{2}{leftonto}
+    \deproot{3}{(3,2)}
+    \depedge{5}{4}{rightonto}
+    \deproot{5}{(0,0)}
+    \depedge{9}{6}{leftonto}
+    \depedge{8}{7}{leftonto}
+    \depedge{9}{8}{leftonto}
+    \deproot{9}{(0,0)}
+\end{dependency}
+
+\vspace{15pt}
+\noindent Parse result, transposed by $(2,2)$\\[10pt]
+\begin{dependency}[theme = simple, dep id=dependency-parse]
+  \begin{deptext}[column sep=0.6em]
+    0 \& 1 \& 2 \& 3 \\
+  \end{deptext}
+    \depedge{2}{1}{leftonto}
+    \depedge{3}{2}{leftonto}
+    \depedge{4}{3}{leftonto}
+    \deproot{4}{(2,1)}
+\end{dependency}
+
+\vspace{15pt}
+\noindent Intersection\\[10pt]
+\begin{dependency}[theme = simple, dep id=dependency-int]
+  \begin{deptext}[column sep=0.6em]
+    0 \& 1 \& 2 \& 3 \\
+  \end{deptext}
+    \depedge{2}{1}{leftonto}
+    \depedge{4}{3}{leftonto}
+    \deproot{4}{(0,0)}
+\end{dependency}
+
+\begin{tikzpicture}[overlay, baseline]
+\draw [thick, gray, opacity=.4] (\goldnode{2}) -- (\parsenode{1});
+\draw [thick, gray, opacity=.4] (\parsenode{1}) -- (\intnode{1});
+\draw [thick, gray, opacity=.4] (\goldnode{3}) -- (\parsenode{2});
+\draw [thick, gray, opacity=.4] (\parsenode{2}) -- (\intnode{2});
+\draw [thick, gray, opacity=.4] (\goldnode{6}) -- (\parsenode{3});
+\draw [thick, gray, opacity=.4] (\parsenode{3}) -- (\intnode{3});
+\draw [thick, gray, opacity=.4] (\goldnode{9}) -- (\parsenode{4});
+\draw [thick, gray, opacity=.4] (\parsenode{4}) -- (\intnode{4});
+\end{tikzpicture}
+
+\end{document}
+

@@ -1,0 +1,6 @@
+#!/bin/bash
+dir=`dirname $0`
+here=`readlink -m $dir`
+# Set the Python path so it can find all of our packages
+export PYTHONPATH=$here/../src:$here/../lib:$PYTHONPATH
+export LD_LIBRARY_PATH=$here/../lib/shared:$LD_LIBRARY_PATH

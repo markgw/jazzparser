@@ -1,0 +1,6 @@
+#!/bin/bash
+## Runs the annotator web tool locally on port 8080.
+## Access it by going to the address http://localhost:8080/
+cd ../annotator
+echo "Running the Jazz Parser web-based annotation tool"
+./django-admin runserver 8080

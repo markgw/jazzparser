@@ -1,0 +1,28 @@
+# Harmonical input file
+@format: chord
+@tempo: 80
+
+# Tune to a 440 A
+origin = 440
+# Move to a C
+origin = (1,-1,-1)
+envelope = smooth
+
+double_root = on
+equal_temperament = off
+chord M7 for 4
+
+rest for 1
+
+equal_temperament = on
+chord M7 for 4
+
+
+rest for 2
+equal_temperament = off
+chord 7 for 4
+
+rest for 1
+
+equal_temperament = on
+chord 7 for 4

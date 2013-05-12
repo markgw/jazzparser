@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Copyright (C) 2008 University of Edinburgh (Mark Wilding)  
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:annotation>
+  <xsd:documentation>
+	  Specification of lambda constructs to build lambda calculus 
+	  expressions for Jazz Parser semantics.
+  </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:include schemaLocation="tokens.xsd"/>
+
+  <xsd:element name="lambdaExpression">
+    <xsd:annotation>
+    <xsd:documentation>
+      Any valid lambda expression:
+		abstraction
+		function application
+		variable
+		literal
+    </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+	
+  <xsd:element name="abstraction" substitutionGroup="lambdaExpression">
+    <xsd:annotation>
+    <xsd:documentation>
+		A function abstraction: \x.E, where x is the abstracted variable
+		and E is a subexpression, potentially containing x.
+    </xsd:documentation>
+    </xsd:annotation>
+	<xsd:complexType>
+	  <xsd:sequence>
+        <xsd:element ref="lambdaExpression" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute name="varid" type="xsd:string" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+    
+  <xsd:element name="variable" substitutionGroup="lambdaExpression">
+    <xsd:annotation>
+    <xsd:documentation>
+		A variable reference: x, where x is a bound variable.
+		id is the ID that will be used elsewhere to refer to this 
+		variable (e.g. when binding it) and is required.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+		<xsd:attribute name="id" type="xsd:string" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+    
+  <xsd:element name="application" substitutionGroup="lambdaExpression">
+    <xsd:annotation>
+    <xsd:documentation>
+        A function application (F A), where F and A are valid lambda
+		expressions.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+		<xsd:sequence>
+			<xsd:element ref="lambdaExpression" maxOccurs="2" minOccurs="1"/>
+		</xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    
+  <xsd:element name="literal" substitutionGroup="lambdaExpression">
+    <xsd:annotation>
+    <xsd:documentation>
+        A literal. May have no children.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+	<xsd:attribute name="name" type="xsd:string" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+    
+  <xsd:element name="tone" substitutionGroup="lambdaExpression">
+    <xsd:annotation>
+    <xsd:documentation>
+        A tonal denotation. This could be:
+            - a simple semantic literal, like "I"
+            - a instance-base relative chord literal, like "I"
+        
+        Specify a simple tone by just specifying the name attribute.
+        Specify a relative tone by specifying the name and relchord="true".
+    </xsd:documentation>
+    </xsd:annotation>
+	<xsd:complexType>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="relchord" type="xsd:boolean"/>
+	</xsd:complexType>
+  </xsd:element>
+  
+</xsd:schema>
+

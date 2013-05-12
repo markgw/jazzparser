@@ -1,0 +1,298 @@
+\documentclass[a4paper]{article}
+\usepackage{tikz-dependency}
+% You may need to set paperheight (for width) and paperwidth (for height) to get things to fit
+\usepackage[landscape,margin=1cm,paperheight=50cm]{geometry}
+\pagestyle{empty}
+
+\title{Alfie}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle\thispagestyle{empty}\vspace{-20pt}
+
+\tikzstyle{every picture}+=[remember picture]
+% Commands we'll need for referencing nodes in different graphs
+\newcommand{\goldnode}[1]{dependency-gold-1-#1}
+\newcommand{\parsenode}[1]{dependency-parse-1-#1}
+\newcommand{\intnode}[1]{dependency-int-1-#1}
+\centering
+
+
+\noindent Gold standard\\[10pt]
+\begin{dependency}[theme = simple, dep id=dependency-gold]
+  \begin{deptext}[column sep=0.6em]
+    0 \& 1 \& 2 \& 3 \& 4 \& 5 \& 6 \& 7 \& 8 \& 9 \& 10 \& 11 \& 12 \& 13 \& 14 \& 15 \& 16 \& 17 \& 18 \& 19 \& 20 \& 21 \& 22 \& 23 \& 24 \& 25 \& 26 \& 27 \& 28 \& 29 \& 30 \& 31 \& 32 \& 33 \& 34 \& 35 \& 36 \& 37 \& 38 \& 39 \& 40 \& 41 \& 42 \& 43 \& 44 \& 45 \& 46 \& 47 \& 48 \& 49 \& 50 \& 51 \& 52 \& 53 \& 54 \& 55 \& 56 \& 57 \& 58 \& 59 \\
+  \end{deptext}
+    \deproot{1}{(0,0)}
+    \depedge{3}{2}{leftonto}
+    \depedge{4}{3}{leftonto}
+    \depedge{5}{4}{leftonto}
+    \deproot{5}{(0,0)}
+    \depedge{7}{6}{leftonto}
+    \depedge{8}{7}{leftonto}
+    \depedge{9}{8}{leftonto}
+    \depedge{16}{9}{leftonto}
+    \depedge{11}{10}{leftonto}
+    \depedge{12}{11}{leftonto}
+    \depedge{15}{12}{leftonto}
+    \depedge{14}{13}{leftonto}
+    \depedge{15}{14}{leftonto}
+    \depedge{16}{15}{leftonto}
+    \deproot{16}{(0,0)}
+    \depedge{18}{17}{leftonto}
+    \depedge{19}{18}{leftonto}
+    \depedge{20}{19}{leftonto}
+    \deproot{20}{(0,0)}
+    \depedge{22}{21}{leftonto}
+    \depedge{23}{22}{leftonto}
+    \depedge{24}{23}{leftonto}
+    \depedge{42}{24}{leftonto}
+    \depedge{26}{25}{leftonto}
+    \depedge{27}{26}{leftonto}
+    \depedge{41}{27}{leftonto}
+    \depedge{29}{28}{leftonto}
+    \depedge{30}{29}{leftonto}
+    \depedge{31}{30}{leftonto}
+    \depedge{32}{31}{leftonto}
+    \depedge{41}{32}{leftonto}
+    \depedge{34}{33}{leftonto}
+    \depedge{35}{34}{leftonto}
+    \depedge{36}{35}{leftonto}
+    \depedge{41}{36}{leftonto}
+    \depedge{38}{37}{leftonto}
+    \depedge{39}{38}{leftonto}
+    \depedge{40}{39}{leftonto}
+    \depedge{41}{40}{leftonto}
+    \depedge{42}{41}{leftonto}
+    \deproot{42}{(0,0)}
+    \depedge{44}{43}{leftonto}
+    \depedge{45}{44}{leftonto}
+    \depedge{46}{45}{leftonto}
+    \depedge{47}{46}{leftonto}
+    \depedge{48}{47}{leftonto}
+    \depedge{49}{48}{leftonto}
+    \depedge{54}{49}{leftonto}
+    \depedge{51}{50}{leftonto}
+    \depedge{52}{51}{leftonto}
+    \depedge{53}{52}{leftonto}
+    \depedge{54}{53}{leftonto}
+    \depedge{57}{54}{leftonto}
+    \depedge{56}{55}{leftonto}
+    \depedge{57}{56}{leftonto}
+    \depedge{58}{57}{leftonto}
+    \deproot{58}{(0,0)}
+    \depedge{60}{59}{leftonto}
+    \deproot{60}{(0,0)}
+\end{dependency}
+
+\vspace{15pt}
+\noindent Parse result\\[10pt]
+\begin{dependency}[theme = simple, dep id=dependency-parse]
+  \begin{deptext}[column sep=0.6em]
+    0 \& 1 \& 2 \& 3 \& 4 \& 5 \& 6 \& 7 \& 8 \& 9 \& 10 \& 11 \& 12 \& 13 \& 14 \& 15 \& 16 \& 17 \& 18 \& 19 \& 20 \& 21 \& 22 \& 23 \& 24 \& 25 \& 26 \& 27 \& 28 \& 29 \& 30 \& 31 \& 32 \& 33 \& 34 \& 35 \& 36 \& 37 \& 38 \& 39 \& 40 \& 41 \& 42 \& 43 \& 44 \& 45 \& 46 \& 47 \& 48 \& 49 \& 50 \& 51 \& 52 \& 53 \& 54 \& 55 \& 56 \& 57 \& 58 \\
+  \end{deptext}
+    \deproot{1}{(2,0)}
+    \depedge{3}{2}{leftonto}
+    \deproot{3}{(1,0)}
+    \depedge{5}{4}{leftonto}
+    \depedge{6}{5}{leftonto}
+    \deproot{6}{(2,2)}
+    \depedge{8}{7}{leftonto}
+    \depedge{9}{8}{leftonto}
+    \depedge{10}{9}{leftonto}
+    \depedge{11}{10}{leftonto}
+    \deproot{11}{(2,2)}
+    \depedge{13}{12}{leftonto}
+    \depedge{14}{13}{leftonto}
+    \deproot{14}{(2,2)}
+    \depedge{16}{15}{leftonto}
+    \deproot{16}{(0,0)}
+    \depedge{18}{17}{leftonto}
+    \depedge{19}{18}{leftonto}
+    \deproot{19}{(0,0)}
+    \depedge{21}{20}{leftonto}
+    \depedge{22}{21}{leftonto}
+    \deproot{22}{(0,0)}
+    \depedge{24}{23}{leftonto}
+    \depedge{25}{24}{leftonto}
+    \deproot{25}{(3,0)}
+    \depedge{27}{26}{leftonto}
+    \depedge{28}{27}{leftonto}
+    \deproot{28}{(3,0)}
+    \depedge{30}{29}{leftonto}
+    \depedge{31}{30}{leftonto}
+    \deproot{31}{(0,0)}
+    \deproot{32}{(3,2)}
+    \depedge{34}{33}{leftonto}
+    \depedge{39}{34}{leftonto}
+    \depedge{36}{35}{leftonto}
+    \depedge{39}{36}{leftonto}
+    \depedge{38}{37}{leftonto}
+    \depedge{39}{38}{leftonto}
+    \deproot{39}{(2,2)}
+    \depedge{41}{40}{leftonto}
+    \depedge{53}{41}{leftonto}
+    \depedge{43}{42}{leftonto}
+    \depedge{44}{43}{leftonto}
+    \depedge{45}{44}{leftonto}
+    \depedge{53}{45}{leftonto}
+    \depedge{47}{46}{leftonto}
+    \depedge{48}{47}{leftonto}
+    \depedge{51}{48}{leftonto}
+    \depedge{50}{49}{leftonto}
+    \depedge{51}{50}{leftonto}
+    \depedge{53}{51}{leftonto}
+    \depedge{53}{52}{leftonto}
+    \deproot{53}{(3,2)}
+    \depedge{55}{54}{leftonto}
+    \deproot{55}{(3,2)}
+    \depedge{57}{56}{leftonto}
+    \depedge{58}{57}{leftonto}
+    \deproot{58}{(2,2)}
+    \deproot{59}{(3,2)}
+\end{dependency}
+
+\vspace{15pt}
+\noindent Intersection\\[10pt]
+\begin{dependency}[theme = simple, dep id=dependency-int]
+  \begin{deptext}[column sep=0.6em]
+    0 \& 1 \& 2 \& 3 \& 4 \& 5 \& 6 \& 7 \& 8 \& 9 \& 10 \& 11 \& 12 \& 13 \& 14 \& 15 \& 16 \& 17 \& 18 \& 19 \& 20 \& 21 \& 22 \& 23 \& 24 \& 25 \& 26 \& 27 \& 28 \& 29 \& 30 \& 31 \& 32 \& 33 \& 34 \& 35 \& 36 \& 37 \& 38 \& 39 \& 40 \& 41 \& 42 \& 43 \& 44 \& 45 \& 46 \\
+  \end{deptext}
+    \depedge{2}{1}{leftonto}
+    \depedge{3}{2}{leftonto}
+    \depedge{5}{4}{leftonto}
+    \depedge{6}{5}{leftonto}
+    \depedge{7}{6}{leftonto}
+    \depedge{9}{8}{leftonto}
+    \depedge{10}{9}{leftonto}
+    \depedge{12}{11}{leftonto}
+    \depedge{14}{13}{leftonto}
+    \deproot{14}{(0,0)}
+    \depedge{16}{15}{leftonto}
+    \depedge{17}{16}{leftonto}
+    \deproot{17}{(0,0)}
+    \depedge{19}{18}{leftonto}
+    \depedge{20}{19}{leftonto}
+    \depedge{22}{21}{leftonto}
+    \depedge{23}{22}{leftonto}
+    \depedge{25}{24}{leftonto}
+    \depedge{26}{25}{leftonto}
+    \depedge{28}{27}{leftonto}
+    \depedge{33}{28}{leftonto}
+    \depedge{30}{29}{leftonto}
+    \depedge{33}{30}{leftonto}
+    \depedge{32}{31}{leftonto}
+    \depedge{33}{32}{leftonto}
+    \depedge{35}{34}{leftonto}
+    \depedge{37}{36}{leftonto}
+    \depedge{38}{37}{leftonto}
+    \depedge{39}{38}{leftonto}
+    \depedge{44}{39}{leftonto}
+    \depedge{41}{40}{leftonto}
+    \depedge{42}{41}{leftonto}
+    \depedge{43}{42}{leftonto}
+    \depedge{44}{43}{leftonto}
+    \depedge{46}{45}{leftonto}
+    \depedge{47}{46}{leftonto}
+\end{dependency}
+
+\begin{tikzpicture}[overlay, baseline]
+\draw [thick, gray, opacity=.4] (\goldnode{3}) -- (\parsenode{5});
+\draw [thick, gray, opacity=.4] (\parsenode{5}) -- (\intnode{2});
+\draw [thick, gray, opacity=.4] (\goldnode{4}) -- (\parsenode{6});
+\draw [thick, gray, opacity=.4] (\parsenode{6}) -- (\intnode{3});
+\draw [thick, gray, opacity=.4] (\goldnode{2}) -- (\parsenode{4});
+\draw [thick, gray, opacity=.4] (\parsenode{4}) -- (\intnode{1});
+\draw [thick, gray, opacity=.4] (\goldnode{8}) -- (\parsenode{9});
+\draw [thick, gray, opacity=.4] (\parsenode{9}) -- (\intnode{6});
+\draw [thick, gray, opacity=.4] (\goldnode{9}) -- (\parsenode{10});
+\draw [thick, gray, opacity=.4] (\parsenode{10}) -- (\intnode{7});
+\draw [thick, gray, opacity=.4] (\goldnode{7}) -- (\parsenode{8});
+\draw [thick, gray, opacity=.4] (\parsenode{8}) -- (\intnode{5});
+\draw [thick, gray, opacity=.4] (\goldnode{6}) -- (\parsenode{7});
+\draw [thick, gray, opacity=.4] (\parsenode{7}) -- (\intnode{4});
+\draw [thick, gray, opacity=.4] (\goldnode{15}) -- (\parsenode{18});
+\draw [thick, gray, opacity=.4] (\parsenode{18}) -- (\intnode{13});
+\draw [thick, gray, opacity=.4] (\goldnode{16}) -- (\parsenode{19});
+\draw [thick, gray, opacity=.4] (\parsenode{19}) -- (\intnode{14});
+\draw [thick, gray, opacity=.4] (\goldnode{11}) -- (\parsenode{13});
+\draw [thick, gray, opacity=.4] (\parsenode{13}) -- (\intnode{9});
+\draw [thick, gray, opacity=.4] (\goldnode{12}) -- (\parsenode{14});
+\draw [thick, gray, opacity=.4] (\parsenode{14}) -- (\intnode{10});
+\draw [thick, gray, opacity=.4] (\goldnode{10}) -- (\parsenode{12});
+\draw [thick, gray, opacity=.4] (\parsenode{12}) -- (\intnode{8});
+\draw [thick, gray, opacity=.4] (\goldnode{13}) -- (\parsenode{15});
+\draw [thick, gray, opacity=.4] (\parsenode{15}) -- (\intnode{11});
+\draw [thick, gray, opacity=.4] (\goldnode{14}) -- (\parsenode{16});
+\draw [thick, gray, opacity=.4] (\parsenode{16}) -- (\intnode{12});
+\draw [thick, gray, opacity=.4] (\goldnode{19}) -- (\parsenode{21});
+\draw [thick, gray, opacity=.4] (\parsenode{21}) -- (\intnode{16});
+\draw [thick, gray, opacity=.4] (\goldnode{20}) -- (\parsenode{22});
+\draw [thick, gray, opacity=.4] (\parsenode{22}) -- (\intnode{17});
+\draw [thick, gray, opacity=.4] (\goldnode{18}) -- (\parsenode{20});
+\draw [thick, gray, opacity=.4] (\parsenode{20}) -- (\intnode{15});
+\draw [thick, gray, opacity=.4] (\goldnode{22}) -- (\parsenode{24});
+\draw [thick, gray, opacity=.4] (\parsenode{24}) -- (\intnode{19});
+\draw [thick, gray, opacity=.4] (\goldnode{23}) -- (\parsenode{25});
+\draw [thick, gray, opacity=.4] (\parsenode{25}) -- (\intnode{20});
+\draw [thick, gray, opacity=.4] (\goldnode{21}) -- (\parsenode{23});
+\draw [thick, gray, opacity=.4] (\parsenode{23}) -- (\intnode{18});
+\draw [thick, gray, opacity=.4] (\goldnode{26}) -- (\parsenode{27});
+\draw [thick, gray, opacity=.4] (\parsenode{27}) -- (\intnode{22});
+\draw [thick, gray, opacity=.4] (\goldnode{27}) -- (\parsenode{28});
+\draw [thick, gray, opacity=.4] (\parsenode{28}) -- (\intnode{23});
+\draw [thick, gray, opacity=.4] (\goldnode{25}) -- (\parsenode{26});
+\draw [thick, gray, opacity=.4] (\parsenode{26}) -- (\intnode{21});
+\draw [thick, gray, opacity=.4] (\goldnode{32}) -- (\parsenode{34});
+\draw [thick, gray, opacity=.4] (\parsenode{34}) -- (\intnode{28});
+\draw [thick, gray, opacity=.4] (\goldnode{41}) -- (\parsenode{39});
+\draw [thick, gray, opacity=.4] (\parsenode{39}) -- (\intnode{33});
+\draw [thick, gray, opacity=.4] (\goldnode{31}) -- (\parsenode{33});
+\draw [thick, gray, opacity=.4] (\parsenode{33}) -- (\intnode{27});
+\draw [thick, gray, opacity=.4] (\goldnode{29}) -- (\parsenode{30});
+\draw [thick, gray, opacity=.4] (\parsenode{30}) -- (\intnode{25});
+\draw [thick, gray, opacity=.4] (\goldnode{30}) -- (\parsenode{31});
+\draw [thick, gray, opacity=.4] (\parsenode{31}) -- (\intnode{26});
+\draw [thick, gray, opacity=.4] (\goldnode{28}) -- (\parsenode{29});
+\draw [thick, gray, opacity=.4] (\parsenode{29}) -- (\intnode{24});
+\draw [thick, gray, opacity=.4] (\goldnode{36}) -- (\parsenode{36});
+\draw [thick, gray, opacity=.4] (\parsenode{36}) -- (\intnode{30});
+\draw [thick, gray, opacity=.4] (\goldnode{35}) -- (\parsenode{35});
+\draw [thick, gray, opacity=.4] (\parsenode{35}) -- (\intnode{29});
+\draw [thick, gray, opacity=.4] (\goldnode{40}) -- (\parsenode{38});
+\draw [thick, gray, opacity=.4] (\parsenode{38}) -- (\intnode{32});
+\draw [thick, gray, opacity=.4] (\goldnode{39}) -- (\parsenode{37});
+\draw [thick, gray, opacity=.4] (\parsenode{37}) -- (\intnode{31});
+\draw [thick, gray, opacity=.4] (\goldnode{49}) -- (\parsenode{45});
+\draw [thick, gray, opacity=.4] (\parsenode{45}) -- (\intnode{39});
+\draw [thick, gray, opacity=.4] (\goldnode{54}) -- (\parsenode{53});
+\draw [thick, gray, opacity=.4] (\parsenode{53}) -- (\intnode{44});
+\draw [thick, gray, opacity=.4] (\goldnode{48}) -- (\parsenode{44});
+\draw [thick, gray, opacity=.4] (\parsenode{44}) -- (\intnode{38});
+\draw [thick, gray, opacity=.4] (\goldnode{47}) -- (\parsenode{43});
+\draw [thick, gray, opacity=.4] (\parsenode{43}) -- (\intnode{37});
+\draw [thick, gray, opacity=.4] (\goldnode{46}) -- (\parsenode{42});
+\draw [thick, gray, opacity=.4] (\parsenode{42}) -- (\intnode{36});
+\draw [thick, gray, opacity=.4] (\goldnode{44}) -- (\parsenode{40});
+\draw [thick, gray, opacity=.4] (\parsenode{40}) -- (\intnode{34});
+\draw [thick, gray, opacity=.4] (\goldnode{45}) -- (\parsenode{41});
+\draw [thick, gray, opacity=.4] (\parsenode{41}) -- (\intnode{35});
+\draw [thick, gray, opacity=.4] (\goldnode{53}) -- (\parsenode{51});
+\draw [thick, gray, opacity=.4] (\parsenode{51}) -- (\intnode{43});
+\draw [thick, gray, opacity=.4] (\goldnode{52}) -- (\parsenode{48});
+\draw [thick, gray, opacity=.4] (\parsenode{48}) -- (\intnode{42});
+\draw [thick, gray, opacity=.4] (\goldnode{51}) -- (\parsenode{47});
+\draw [thick, gray, opacity=.4] (\parsenode{47}) -- (\intnode{41});
+\draw [thick, gray, opacity=.4] (\goldnode{50}) -- (\parsenode{46});
+\draw [thick, gray, opacity=.4] (\parsenode{46}) -- (\intnode{40});
+\draw [thick, gray, opacity=.4] (\goldnode{56}) -- (\parsenode{57});
+\draw [thick, gray, opacity=.4] (\parsenode{57}) -- (\intnode{46});
+\draw [thick, gray, opacity=.4] (\goldnode{57}) -- (\parsenode{58});
+\draw [thick, gray, opacity=.4] (\parsenode{58}) -- (\intnode{47});
+\draw [thick, gray, opacity=.4] (\goldnode{55}) -- (\parsenode{56});
+\draw [thick, gray, opacity=.4] (\parsenode{56}) -- (\intnode{45});
+\end{tikzpicture}
+
+\end{document}
+

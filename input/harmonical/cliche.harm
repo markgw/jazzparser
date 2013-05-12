@@ -1,0 +1,51 @@
+# Harmonical input file
+# The cliche example used by CLH in The Perception of Music
+#  a. Equally tempered
+#  b. Justly intoned
+#  c. Justly intoned with G# instead of Ab
+@format: chord
+@tempo: 120
+
+# Tune to a 440 A
+origin = 440
+# Move to C
+origin = (1,-1,-1)
+envelope = smooth
+program = 0
+
+# Equally tempered
+equal_temperament = on
+t (0,0,0) for 1 vol 99
+t (1,0,-1) for 1/2 vol 65
+t (1,0,-1) for 1/2 vol 65
+t (0,-1,0) for 1 vol 80
+t (1,0,-1) for 1 vol 70
+rest for 1
+t (1,1,-1) for 1 vol 90
+t (0,0,0) for 1 vol 99
+
+rest for 2
+
+# Justly intoned
+equal_temperament = off
+t (0,0,0) for 1 vol 99
+t (1,0,-1) for 1/2 vol 65
+t (1,0,-1) for 1/2 vol 65
+t (0,-1,0) for 1 vol 80
+t (1,0,-1) for 1 vol 70
+rest for 1
+t (1,1,-1) for 1 vol 90
+t (0,0,0) for 1 vol 99
+
+rest for 2
+
+# Justly intoned with wrong disambiguation
+equal_temperament = off
+t (0,0,0) for 1 vol 99
+t (1,0,-1) for 1/2 vol 65
+t (1,0,-1) for 1/2 vol 65
+t (0,2,-1) for 1 vol 80
+t (1,0,-1) for 1 vol 70
+rest for 1
+t (1,1,-1) for 1 vol 90
+t (0,0,0) for 1 vol 99

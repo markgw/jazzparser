@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+This schema is to be used for jazz grammars. It has been modified to make it
+more appropriate to Jazz, which is a little different to English.
+
+Copyright (C) 2003-4 University of Edinburgh (Michael White) 
+$Revision: 1.9 $, $Date: 2007/06/24 04:13:06 $ 
+Used for jazz parser by Mark Wilding.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:annotation>
+  <xsd:documentation>
+    Schema for grammar file.
+    
+    A grammar file lists the lexicon, morphology and rules files.
+  </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:include schemaLocation="tokens.xsd"/>
+
+  <xsd:element name="grammar">
+    <xsd:annotation>
+    <xsd:documentation>
+      The root element.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="lexicon" type="fileType"/>
+        <xsd:element name="morphology" type="fileType"/>
+        <xsd:element name="rules" type="fileType"/>
+        <xsd:element name="types" type="fileType" minOccurs="0"/>
+        <xsd:element name="functions" type="fileType"/>
+      </xsd:sequence>
+      <xsd:attribute name="name" type="xsd:string"/>
+      <xsd:attribute name="semantics" type="xsd:string"/>
+    </xsd:complexType>
+  </xsd:element>
+  
+  <xsd:complexType name="fileType">
+    <xsd:annotation>
+    <xsd:documentation>
+      An element with a file attribute specifying a filename.
+    </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="file" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  
+</xsd:schema>

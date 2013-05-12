@@ -1,0 +1,5 @@
+#!/bin/bash
+export PYTHONPATH=./annotator:./lib:../src:../lib:$PYTHONPATH
+export DJANGO_SETTINGS_MODULE=settings
+
+python annotator/bin/graphical_annotator.py $*

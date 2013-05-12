@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Notes on Sequences | {% endblock %}
+
+{% block content %}
+	<h1>Notes on Chord Sequences</h1>
+	<ul class="notes_list box">
+		{% for sequence in sequences %}
+			<li{% if forloop.last %} class="last"{% endif %}>
+				<h2>{{ sequence.name }} <a href="{% url apps.sequences.views.edit_sequence sequence.id %}" class="edit_sequence">[Edit]</a></h2>
+				{{ sequence.notes|linebreaks }}
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

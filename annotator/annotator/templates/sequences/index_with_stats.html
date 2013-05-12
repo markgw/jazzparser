@@ -1,0 +1,21 @@
+{% extends 'sequences/index.html' %}
+
+{% block sequence_info %}<div class="num_chords">{{ sequence.length }}</div> <div class="prop_annotated">{% if sequence.analysis_omitted %}({% endif %}{{ sequence.percentage_annotated|floatformat }}%{% if sequence.analysis_omitted %}){% endif %}</div>{% endblock %}
+{% block footer_info %}
+	<div class="box_bottom footer_info">
+		<table>
+			<tr>
+				<th>Unannotated:</th><td>{{ unannotated.count }}</td>
+			</tr>
+			<tr>
+				<th>Annotated &lt;80%:</th><td>{{ num_annotated_little }}</td>
+			</tr>
+			<tr>
+				<th>Annotated:</th><td>{{ num_annotated_greatly }}</td>
+			</tr>
+			<tr class="total">
+				<th>Total:</th><td>{{ sequences|length }}</td>
+			</tr>
+		</table>
+	</div>
+{% endblock %}

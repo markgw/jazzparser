@@ -1,0 +1,10 @@
+##########################
+## Follow-up to cat_conversion_3.0.rep.
+## 14/3/11
+##########################
+
+# This is just to help locate the occurences of the remaining old 
+# categories that I need to replace manually.
+# Prints out the sequence around each occurrence.
+TC_IVR : $$<<>>
+TC_IIR : $$<<>>

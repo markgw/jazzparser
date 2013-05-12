@@ -1,0 +1,10 @@
+#!/bin/bash
+# Make Epydoc documentation for just the midi library separately.
+# You'll need Epydoc installed to run this
+
+cd ../../src/
+. ../bin/setpath
+rm ../doc/mididoc/*
+# Get the current revision number
+REV=`svn info |grep Revision|sed -e 's/Revision: //'`
+epydoc --html -o ../doc/mididoc -n "Python MIDI library (r$REV)" $* midi && echo "Put Epydoc html in PROJECT/doc/mididoc/"

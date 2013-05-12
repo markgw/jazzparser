@@ -1,0 +1,6 @@
+#!/bin/bash
+# Runs the Jazz Parser, passing it all command-line args
+. `dirname $0`/setpath
+cd $here
+
+python ../src/jazzparser/parse.py $*

@@ -1,0 +1,5 @@
+#!/bin/bash
+cd ../..
+. setpath
+
+python -m unittest discover -t ../src -s jptests -p "*" $*

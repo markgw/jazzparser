@@ -1,0 +1,14 @@
+##########################
+## Multipass conversion step 2. See cat_conversion_2.0.rep for step 1.
+## 4/3/10
+##########################
+
+0a>Rep_D   : Rep_D
+0a>Rep     : Rep
+0a>Dim_bII : Rep_D
+0a>T       : Rep
+0a>Rep_Tt  : Rep_Tt
+
+# Print out any remaining 0a 0a sequences so we know whether we need to 
+#  do this again
+0a>0a    : $$>>

@@ -1,0 +1,4 @@
+This directory contains OCaml source files. The main jazzparser project is 
+written in Python and the ML code does not interact with this. It's really 
+just for concise expressions of algorithms, written in OCaml so they can be 
+tested by running them.

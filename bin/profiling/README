@@ -1,0 +1,4 @@
+Scripts in this directory are benchmark tests for the jazzparser. They use the 
+parserprofile script to run the parser with profiling enabled. Each should 
+represent a typical parsing scenario, useful for finding out what's taking the 
+most time during parsing.

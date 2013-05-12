@@ -1,0 +1,55 @@
+Sort out problem with timings getting passed through function 
+application.
+
+------ [DONE]
+
+Redefine equality for LFs so that those with different times are 
+considered unequal.
+
+-------
+
+Check for all uses of the following:
+ - Any use of the time_assignment kwarg or any other occurrence of the term.
+  + Done in rev 883
+ - Temporal.time_assignment_as_literal_time_list() - now 
+    get_literal_time_list() and does take an id arg.
+  + Not used anywhere
+ - Temporal.time_assignment_as_time_list() has likewise become 
+    get_time_list().
+  + Not used anywhere
+ - Temporal.add_time_to_timed_objects() has become set_time_of_timed_objects().
+  + Replaced in rev 884
+ - Now changed to set_all_times()
+ - These have been removed since they should not be needed:
+   - Temporal.apply_time_map()
+    + Not used
+   - Temporal.extend_time_assignments()
+    + Not used
+   - Temporal.remove_time_assignment()
+    + Not used
+   - Temporal.get_time_assignment_keys()
+    + Not used
+   - Temporal.remove_unsequential_time_assignments() (was deprecated anyway)
+    + Not used
+   - produce_cross_map()
+    + Removed in rev 885
+   - produce_new_key_map()
+    + Not used
+   - apply_cross_map()
+    + Not used
+   - earliest_time()
+    + Not used
+   - earlier_time_set()
+    + Not used
+   - cleanup_time_assignment_names()
+    + Not used
+   - TimeAssignmentError
+    + Not used
+ - jazzparser.data.TimeAssignment has been removed. Remove any uses of this class.
+  + Removed a few unused imports
+ - Got rid of remove_duplicate_time_assignments from the music_roman syntax module.
+  + Not used
+ - Renamed add_time() to set_time() on SignBase, since there's only 
+    one time now.
+  + All uses already changed
+------- [DONE]
