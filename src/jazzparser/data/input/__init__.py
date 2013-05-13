@@ -28,7 +28,7 @@ __author__ = "Mark Granroth-Wilding <mark.granroth-wilding@ed.ac.uk>"
 
 import sys
 from jazzparser.data import Fraction, Chord
-from jazzparser.utils.options import ModuleOption
+from jazzparser.utils.options import ModuleOption, ModuleOptionError
 from jazzparser.data.db_mirrors import SequenceIndex
 from jazzparser.utils.strings import str_to_bool, make_unique
 from . import tools
@@ -603,6 +603,153 @@ class SegmentedMidiInput(Input):
                                   gold=gold,
                                   sequence_index=sequence_index)
 
+class MidiInput(Input):
+    """
+    Input wrapper for MIDI files without information about segmentation. 
+    For models using segmented MIDI, you'll either want to used a 
+    L{SegmentedMidiInput} or produce one automatically by loading a MIDI
+    file with this.
+    
+    """
+    FILE_INPUT_OPTIONS = [
+        ModuleOption('melisma', 
+                     help_text="path where Melisma 2 is installed",
+                     usage="melisma=/path/to/melisma"),
+        ModuleOption('mftext', 
+                     help_text="path where Melisma 1's mftext is installed",
+                     usage="mftext=/path/to/mftext"),
+    ]
+    
+    def __init__(self, filename, melisma_path=None, mftext_path=None, *args, **kwargs):
+        """
+        
+        @type stream: midi.EventStream
+        @param stream: the midi data
+        
+        """
+        super(MidiInput, self).__init__(*args, **kwargs)
+        self.filename = filename
+        self.melisma_path = melisma_path
+        self.mftext_path = mftext_path
+        self._stream = None
+    
+    @property
+    def stream(self):
+        if not self._stream:
+            from midi import read_midifile
+            # Read are parse the midi file
+            self._stream = read_midifile(self.filename)
+        return self._stream
+    
+    @property
+    def inputs(self):
+        return [self.stream]
+        
+    def __str__(self):
+        if self.name is not None:
+            return "<MIDI: %s>" % (self.name)
+        else:
+            return "<MIDI data>"
+        
+    def __len__(self):
+        return 1
+        
+    def __getitem__(self, index):
+        return self.stream
+    
+    def slice(self, start=None, end=None):
+        return self
+    
+    @staticmethod
+    def from_file(filename, options={}):
+        from os.path import basename
+        # Use the filename as an identifier
+        name = basename(filename)
+        return MidiInput(filename, melisma_path = options.get('melisma', None), 
+                                 mftext_path = options.get('mftext', None),
+                                 name=name)
+    
+    def auto_segment(self):
+        from jazzparser.misc.melisma import MelismaRunner
+        from jazzparser.utils.base import group_pairs
+        from midi.slice import EventStreamSlice
+        
+        # We need the path options to segment
+        if not self.melisma_path or not self.mftext_path:
+            raise ModuleOptionError, "automatic segmentation requires that you "\
+                "specify both the melisma_path and mftext_path input options"
+        
+        # Get the MIDI stream to take the notes from
+        stream = self.stream
+        # Run Melisma to get the timings of beats
+        runner = MelismaRunner(self.melisma_path, self.mftext_path)
+        res = runner.run_midi(self.filename)
+        beats = res.level_beats(2)
+        beat_times = [b.time for b in beats]
+        chunks = group_pairs(beat_times)
+        
+        # Use slices to do all the necessary repetition of ongoing events
+        slices = [EventStreamSlice(stream, beat_start, beat_end)
+                        for (beat_start,beat_end) in chunks]
+        inputs = [slc.to_event_stream(repeat_playing=True, cancel_playing=False) \
+                            for slc in slices]
+        # Associate the start time with each segment
+        for slc,beat_time in zip(inputs, beat_times):
+            slc.segment_start = beat_time
+        
+        return inputs
+    
+class AutoSegmentedMidiInput(Input):
+    """
+    Used in place of a L{SegmentedMidiInput} to read a MIDI file and 
+    automatically segment it. Automatic segmentation is performed when the 
+    file is loaded.
+    
+    """
+    FILE_INPUT_OPTIONS = MidiInput.FILE_INPUT_OPTIONS
+    SHELL_TOOLS = Input.SHELL_TOOLS + [ 
+        tools.PlayMidiChunksTool(),
+        tools.PrintMidiChunksTool()
+    ]
+    
+    def __init__(self, inputs, midi_input=None, *args, **kwargs):
+        super(AutoSegmentedMidiInput, self).__init__(*args, **kwargs)
+        self.inputs = inputs
+        self.midi_input = midi_input
+    
+    @property
+    def stream(self):
+        if self.midi_input:
+            return self.midi_input.stream
+        else:
+            return None
+        
+    def __len__(self):
+        return len(self.inputs)
+        
+    def __getitem__(self, item):
+        return self.inputs[item]
+        
+    def __str__(self):
+        if self.name is not None:
+            return "<MIDI: %s (%d)>" % (self.name, len(self))
+        else:
+            return "<MIDI: %d chunks>" % len(self)
+        
+    def slice(self, start=None, end=None):
+        return AutoSegmentedMidiInput(self.inputs[start:end], 
+                                        stream=self.stream,
+                                        name=self.name)
+    
+    @staticmethod
+    def from_file(filename, options={}):
+        midi_input = MidiInput.from_file(filename, options)
+        inputs = midi_input.auto_segment()
+        return AutoSegmentedMidiInput(inputs, name=midi_input.name,
+                                              midi_input=midi_input)
+    
+
+
 class AnnotatedDbInput(DbInput):
     """
     Like DbInput, but stores category annotations along with the chords.
@@ -659,9 +806,12 @@ INPUT_TYPES = [
     ('db-annotated', AnnotatedDbInput),
     ('chords', ChordInput),
     ('segmidi', SegmentedMidiInput),
+    ('midi', MidiInput),
+    ('autosegmidi', AutoSegmentedMidiInput),
     ('labels', WeightedChordLabelInput),
     ('null', NullInput),
 ]
+
 
 class BulkInput(InputReader):
     """
