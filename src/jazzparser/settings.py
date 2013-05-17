@@ -15,8 +15,12 @@ PCFG_MODEL_DATA_DIR = os.path.join(MODEL_DATA_DIR, "pcfg")
 BACKOFF_MODEL_DATA_DIR = os.path.join(PROJECT_ROOT, "etc", "backoff_data")
 # Where the XML grammar definitions live
 GRAMMAR_DATA_DIR = os.path.join(PROJECT_ROOT, "grammars")
-# Where config files and local data are stored
+# Where local data is stored
 LOCAL_DATA_DIR = os.path.join(PROJECT_ROOT, "etc", "local")
+# Local config files, currently just an alias
+#  This name makes more sense for some purposes and the two might be 
+#  separated at some point in the future
+LOCAL_CONFIG_DIR = LOCAL_DATA_DIR
 # Generic temporary directory for any purpose
 TEMP_DIR = os.path.join(PROJECT_ROOT, "etc", "tmp")
 # Where external corpora are stored within the project

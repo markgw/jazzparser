@@ -674,11 +674,6 @@ class MidiInput(Input):
         from jazzparser.utils.base import group_pairs
         from midi.slice import EventStreamSlice
         
-        # We need the path options to segment
-        if not self.melisma_path or not self.mftext_path:
-            raise ModuleOptionError, "automatic segmentation requires that you "\
-                "specify both the melisma_path and mftext_path input options"
-        
         # Get the MIDI stream to take the notes from
         stream = self.stream
         # Run Melisma to get the timings of beats

@@ -34,8 +34,22 @@ from subprocess import Popen, PIPE
 from tempfile import NamedTemporaryFile
 import os, re
 
+from jazzparser.utils.localconf import LocalConfig
+
 class MelismaRunner(object):
-    def __init__(self, path, mftext_path):
+    def __init__(self, path=None, mftext_path=None):
+        # Read in the config file and use values from there if not given
+        conf = MelismaConfig.read()
+        if path is None:
+            path = conf.melisma
+        if mftext_path is None:
+            mftext_path = conf.mftext
+        
+        if path is None or mftext_path is None:
+            raise MelismaError, "to run Melisma, both Melisma's path (melisma) "\
+                "and Mftext's (mftext) must be given (as a file option or in "\
+                "conf file %s)" % MelismaConfig.filename()
+        
         self.path = path
         self.mftext_path = mftext_path
     
@@ -115,3 +129,10 @@ class Beat(object):
 
 class MelismaError(Exception):
     pass
+
+class MelismaConfig(LocalConfig):
+    name = "melisma"
+    OPTIONS = {
+        'mftext' : None,
+        'melisma' : None
+    }

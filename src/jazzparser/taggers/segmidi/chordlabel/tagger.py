@@ -83,7 +83,7 @@ class ChordLabelNgramTagger(Tagger):
                 "chord per line",
             usage="label_output=F, where F is a filename"),
     ]
-    INPUT_TYPES = ['segmidi']
+    INPUT_TYPES = ['segmidi', 'autosegmidi']
     name = "chordlabel"
     shell_tools = Tagger.shell_tools + [
         tools.ChordLabelTool(),
