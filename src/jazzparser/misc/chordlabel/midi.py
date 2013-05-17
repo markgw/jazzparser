@@ -44,7 +44,6 @@ def midi_to_emission_stream(segmidi, remove_empty=True, unique_notes=False):
     """
     chunks = []
     start_times = []
-    tick_unit = segmidi.tick_unit
     
     for segment in segmidi:
         segment_start = segment.segment_start
