@@ -118,7 +118,7 @@ class MelismaResponse(object):
         return MelismaResponse(beats)
     
     def level_beats(self, level=1):
-        return [b for b in self.beats if b.level <= level]
+        return [b for b in self.beats if b.level >= level]
 
 class Beat(object):
     def __init__(self, time, level, chord=None, time2=None):

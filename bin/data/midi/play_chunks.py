@@ -34,6 +34,7 @@ from jazzparser.misc.raphsto import MidiHandler
 from jazzparser.utils.config import parse_args_with_config
 from jazzparser.utils.midi import play_stream
 from midi import read_midifile, NoteOnEvent
+from jazzparser.data.input import command_line_input
 
 def main():
     usage = "%prog [options] <midi-file>"
@@ -41,45 +42,45 @@ def main():
         "offset, and plays "\
         "the chunks consecutively, with a gap between each."
     parser = OptionParser(usage=usage, description=description)
-    parser.add_option('-t', '--time-unit', dest="time_unit", action="store", type="float", help="size of chunks in crotchet beats (according to the midi file's resolution)", default=4)
-    parser.add_option('-o', '--tick-offset', dest="tick_offset", action="store", type="int", help="offset of the first chunk in midi ticks", default=0)
     parser.add_option('-g', '--gap', dest="gap", action="store", type="float", help="time to wait between playing each chunk in seconds (potentially float). It will take some time to load the chunk and the sequencer usually pauses before reporting it's done: this is not included in this value", default=0.0)
     parser.add_option('-p', '--print', dest="print_events", action="store_true", help="print out all events for each chunk")
     parser.add_option('--pno', '--print-note-ons', dest="print_note_ons", action="store_true", help="print only note-on events")
     parser.add_option('--force-res', dest="force_res", action="store", type="int", help="force the midi file's resolution to be the given value, rather than using that read from the file")
     parser.add_option('-s', '--start', dest="start", action="store", type="int", help="chunk number to start at", default=0)
+    parser.add_option("--filetype", "--ft", dest="filetype", action="store", help="select the file type for the input file (--file). Use '--filetype help' for a list of available types. Default: segmidi", default='segmidi')
+    parser.add_option("--file-options", "--fopt", dest="file_options", action="store", help="options for the input file (--file). Type '--fopt help', using '--ft <type>' to select file type, for a list of available options.")
     options, arguments = parse_args_with_config(parser)
     
+    if len(arguments) == 0:
+        print >>sys.stderr, "Missing filename"
+        sys.exit(1)
     filename = arguments[0]
     
     # Load up the input midi file
-    infile = read_midifile(filename, force_resolution=options.force_res)
-    handler = MidiHandler(infile,
-                          time_unit=options.time_unit,
-                          tick_offset=options.tick_offset)
-    slices = handler.get_slices()
+    input_data = command_line_input(filename=filename, 
+                                    filetype=options.filetype,
+                                    options=options.file_options,
+                                    allowed_types=['segmidi', 'autosegmidi'])
+    print "Input type: %s" % options.filetype
     
     # Start at the requested chunk
-    slices = slices[options.start:]
-    
-    print "Playing %d-beat chunks with a %d-tick offset" % (options.time_unit, options.tick_offset)
-    if options.start > 0:
+    if options.start:
+        input_data = input_data[options.start:]
         print "Start from chunk %d" % options.start
-    print "Total chunks: %d" % len(slices)
+    print "Total chunks: %d" % len(input_data)
     print "Ctrl+C to exit"
     print
     
     try:
-        for i,slc in enumerate(slices):
-            strm = slc.to_event_stream(cancel_playing=True)
-            print "Playing chunk %d: %d-%d (%d events)" % (i, slc.start, slc.end,len(strm.trackpool))
+        for i,slc in enumerate(input_data):
+            print "Playing chunk %d (%d events)" % (i,len(slc.trackpool))
             if options.print_events:
-                print "\n".join("  %s" % ev for ev in sorted(strm.trackpool))
+                print "\n".join("  %s" % ev for ev in sorted(slc.trackpool))
             elif options.print_note_ons:
-                print "\n".join("  %s" % ev for ev in sorted(strm.trackpool) \
+                print "\n".join("  %s" % ev for ev in sorted(slc.trackpool) \
                                                     if type(ev) is NoteOnEvent)
             
-            play_stream(strm, block=True)
+            play_stream(slc, block=True)
             if options.gap > 0.0:
                 print "  Waiting %s seconds..." % options.gap
                 time.sleep(options.gap)
