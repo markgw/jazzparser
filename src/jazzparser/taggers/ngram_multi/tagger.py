@@ -320,22 +320,14 @@ class MultiChordNgramTagger(ModelTagger):
             word_signs = []
             for (state,prob) in probs:
                 root,schema = state
-                # Instantiate a sign for this state
-                features['root'] = root
-                signs = self.grammar.get_signs_for_tag(schema, features)
-                # There should only be one of these
-                if not signs:
-                    continue
-                else:
-                    sign = signs[0]
-                word_signs.append((sign, (root, schema), prob))
+                word_signs.append(((root, schema), prob))
             
             self._tagged_times.append(word_signs)
             
             # Store the list of probabilities for tags, which we'll use 
             #  after we've tagged every word to work out the sizes
             #  of the tag batches
-            word_tag_probs.append([p for __,__,p in word_signs])
+            word_tag_probs.append([p for __,p in word_signs])
         
         if self.options['best']:
             # Only return one for each word
@@ -347,11 +339,7 @@ class MultiChordNgramTagger(ModelTagger):
             batch_ranges = [[(sum(batches[:i]),sum(batches[:i+1])) for i in range(len(batches))] \
                                     for batches in batch_sizes]
         
-        # Step through adding each to see which we should also add to combine 
-        #  repetitions of identical schema,root pairs
-        def prob_combiner(probs):
-            return sum(probs, 0.0) / float(len(probs))
-        combiner = SpanCombiner()
+        # Prepare the batches of signs in the form of (root,schema) pairs
         added = True
         offset = 0
         while added:
@@ -361,42 +349,55 @@ class MultiChordNgramTagger(ModelTagger):
                 if offset < len(batch_ranges[time]):
                     start, end = batch_ranges[time][offset]
                     for sign_offset in range(start, end):
-                        sign, (root,schema), prob = self._tagged_times[time][sign_offset]
+                        (root,schema), prob = self._tagged_times[time][sign_offset]
                         added = True
-                        # Add the length 1 span
-                        batch_spans.append((time, time+1, (sign,(root,schema),prob)))
-                        # Add this to the combiner to see if it combines 
-                        #  with anything we've previously added
-                        combined = combiner.combine_edge(
-                                            (time, time+1, (root,schema)),
-                                            properties=prob,
-                                            prop_combiner=prob_combiner)
-                        # Add each additional span with the same sign
-                        for (span_start, span_end) in combined:
-                            # Set the probability of the combined categories
-                            new_prob = combiner.edge_properties[
-                                        (span_start, span_end, (root,schema))]
-                            # Set timing properties of this spanning category
-                            features = {
-                                'duration' : sum(
-                                        self.durations[span_start:span_end]),
-                                'time' : self.times[span_start],
-                                'root' : root,
-                            }
-                            # Technically there could be multiple of these, 
-                            #  though in fact there never are
-                            new_signs = \
-                                self.grammar.get_signs_for_tag(schema, features)
-                            for new_sign in new_signs:
-                                batch_spans.append(
-                                    (span_start, span_end, 
-                                        (new_sign, (root,schema), new_prob)))
+                        batch_spans.append((root, schema, prob, time))
             self._tagged_spans.append(batch_spans)
             offset += 1
+        
+        # This will be used to keep track of combining spans when the signs are fetched
+        self.combiner = SpanCombiner()
+    
+    def _add_tag(self, root, schema, prob, time):
+        # Get the sign(s) for the main addition
+        spans = self._get_signs(root, schema, time, time+1, prob)
+        
+        # Add a sign for the tag and see which we should also add to combine 
+        #  repetitions of identical schema,root pairs
+        def prob_combiner(probs):
+            return sum(probs, 0.0) / float(len(probs))
+        # Add this to the combiner to see if it combines 
+        #  with anything we've previously added
+        combined = self.combiner.combine_edge(
+                            (time, time+1, (root,schema)),
+                            properties=prob,
+                            prop_combiner=prob_combiner)
+        # Add each additional span with the same sign
+        for (span_start, span_end) in combined:
+            # Set the probability of the combined categories
+            new_prob = self.combiner.edge_properties[
+                        (span_start, span_end, (root,schema))]
+            spans.extend(self._get_signs(root, schema, span_start, span_end, new_prob))
+        return spans
+        
+    def _get_signs(self, root, schema, span_start, span_end, prob):
+        # Set timing properties of this spanning category
+        features = {
+            'duration' : sum(
+                    self.durations[span_start:span_end]),
+            'time' : self.times[span_start],
+            'root' : root,
+        }
+        # Technically there could be multiple of these, 
+        #  though in fact there never are
+        new_signs = self.grammar.get_signs_for_tag(schema, features)
+        return [(span_start, span_end, (sign, (root, schema), prob)) for sign in new_signs]
 
     def get_signs(self, offset=0):
         if offset < len(self._tagged_spans):
-            return self._tagged_spans[offset]
+            return sum(
+                (self._add_tag(root, schema, prob, time) for \
+                    (root,schema,prob,time) in self._tagged_spans[offset]), [])
         else:
             return []
         
