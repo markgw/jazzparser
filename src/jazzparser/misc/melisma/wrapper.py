@@ -65,15 +65,25 @@ class MelismaRunner(object):
         mftext_data = self.run_mftext(midi_file)
         with NamedTemporaryFile(delete=False) as mftext_file:
             mftext_file.write(mftext_data)
+        with open('mftext_test.out', 'w') as tmp:
+            tmp.write(mftext_data)
         return mftext_file.name
     
     def run(self, mftext_filename):
         command = [os.path.join(self.path, "polyph"), os.path.abspath(mftext_filename)]
         proc = Popen(command, stdout=PIPE, stderr=PIPE)
-        proc.wait()
+        try:
+            proc.wait()
+        except KeyboardInterrupt:
+            print >>sys.stderr, "Interrupted during Melisma call. Current output:"
+            print >>sys.stderr, proc.stdout.read()
+            raise
         # For some reason, melisma has a returncode of 1 when it succeeds, 
         #  so we can't tell if it's failed
-        return MelismaResponse.from_output(proc.stdout.read())
+        response = proc.stdout.read()
+        with open('melisma_test.out', 'w') as tmp:
+            tmp.write(response)
+        return MelismaResponse.from_output(response)
         
     def run_midi(self, midi_filename):
         # First convert the midi data to mftext

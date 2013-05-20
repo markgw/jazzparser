@@ -611,16 +611,9 @@ class MidiInput(Input):
     file with this.
     
     """
-    FILE_INPUT_OPTIONS = [
-        ModuleOption('melisma', 
-                     help_text="path where Melisma 2 is installed",
-                     usage="melisma=/path/to/melisma"),
-        ModuleOption('mftext', 
-                     help_text="path where Melisma 1's mftext is installed",
-                     usage="mftext=/path/to/mftext"),
-    ]
+    FILE_INPUT_OPTIONS = []
     
-    def __init__(self, filename, melisma_path=None, mftext_path=None, *args, **kwargs):
+    def __init__(self, filename, *args, **kwargs):
         """
         
         @type stream: midi.EventStream
@@ -629,8 +622,6 @@ class MidiInput(Input):
         """
         super(MidiInput, self).__init__(*args, **kwargs)
         self.filename = filename
-        self.melisma_path = melisma_path
-        self.mftext_path = mftext_path
         self._stream = None
     
     @property
@@ -665,11 +656,9 @@ class MidiInput(Input):
         from os.path import basename
         # Use the filename as an identifier
         name = basename(filename)
-        return MidiInput(filename, melisma_path = options.get('melisma', None), 
-                                 mftext_path = options.get('mftext', None),
-                                 name=name)
+        return MidiInput(filename, name=name)
     
-    def auto_segment(self):
+    def auto_segment(self, level=2, melisma_path=None, mftext_path=None):
         from jazzparser.misc.melisma import MelismaRunner
         from jazzparser.utils.base import group_pairs
         from midi.slice import EventStreamSlice
@@ -677,9 +666,9 @@ class MidiInput(Input):
         # Get the MIDI stream to take the notes from
         stream = self.stream
         # Run Melisma to get the timings of beats
-        runner = MelismaRunner(self.melisma_path, self.mftext_path)
+        runner = MelismaRunner(melisma_path, mftext_path)
         res = runner.run_midi(self.filename)
-        beats = res.level_beats(2)
+        beats = res.level_beats(level)
         beat_times = [b.time for b in beats]
         chunks = group_pairs(beat_times)
         
@@ -701,7 +690,19 @@ class AutoSegmentedMidiInput(Input):
     file is loaded.
     
     """
-    FILE_INPUT_OPTIONS = MidiInput.FILE_INPUT_OPTIONS
+    FILE_INPUT_OPTIONS = MidiInput.FILE_INPUT_OPTIONS + [
+        ModuleOption('melisma', 
+                     help_text="path where Melisma 2 is installed",
+                     usage="melisma=/path/to/melisma"),
+        ModuleOption('mftext', 
+                     help_text="path where Melisma 1's mftext is installed",
+                     usage="mftext=/path/to/mftext"),
+        ModuleOption('level', 
+                     help_text="beat level of the Melisma metrical grid to use "\
+                        "to segment",
+                     usage="level=N, where N is an integer", default=2, filter=int),
+    
+    ]
     SHELL_TOOLS = Input.SHELL_TOOLS + [ 
         tools.PlayMidiChunksTool(),
         tools.PrintMidiChunksTool()
@@ -738,8 +739,10 @@ class AutoSegmentedMidiInput(Input):
     
     @staticmethod
     def from_file(filename, options={}):
-        midi_input = MidiInput.from_file(filename, options)
-        inputs = midi_input.auto_segment()
+        midi_input = MidiInput.from_file(filename)
+        inputs = midi_input.auto_segment(level=options['level'], 
+                                         melisma_path=options['melisma'],
+                                         mftext_path=options['mftext'])
         return AutoSegmentedMidiInput(inputs, name=midi_input.name,
                                               midi_input=midi_input)
     

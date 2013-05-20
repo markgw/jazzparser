@@ -462,5 +462,11 @@ def note_ons(stream):
     non-zero velocity.
     
     """
-    return [ev for ev in stream.trackpool if isinstance(ev, NoteOnEvent) \
-                                    and ev.velocity > 0]
+    return note_ons_list(stream.trackpool)
+
+def note_ons_list(lst):
+    """
+    Like L{note_ons}, but for a list of midi events.
+    
+    """
+    return [ev for ev in lst if isinstance(ev, NoteOnEvent) and ev.velocity > 0]

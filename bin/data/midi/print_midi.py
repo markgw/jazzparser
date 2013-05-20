@@ -29,12 +29,17 @@ import sys
 from optparse import OptionParser
 from jazzparser.utils.config import parse_args_with_config
 from midi import read_midifile
+from jazzparser.utils.midi import note_ons_list
 
 def main():
     usage = "%prog [options] <in-file>"
     description = "Dump a description of all the events in a midi file "\
         "to stdout."
     parser = OptionParser(usage=usage, description=description)
+    parser.add_option("--only-on", "-o", dest="only_on", action="store_true", 
+                        help="Only include note-on events")
+    parser.add_option("--combine", "-c", dest="combine", action="store_true", 
+                        help="Combine all tracks into one")
     options, arguments = parse_args_with_config(parser)
     
     if len(arguments) == 0:
@@ -46,9 +51,17 @@ def main():
     midi = read_midifile(filename)
     print "Midi file type %d" % midi.format
     print "Resolution: %d" % midi.resolution
-    for track in range(len(midi)):
-        print "\nTrack %d" % track
-        for event in sorted(midi[track]):
+    if options.combine:
+        tracks = [("All tracks", midi.trackpool)]
+    else:
+        tracks = [("Track %d" % track, midi[track]) for track in range(len(midi))]
+        
+    for track,events in tracks:
+        print "\n%s" % track
+        events = sorted(events)
+        if options.only_on:
+            events = note_ons_list(events)
+        for event in events:
             print "%s" % (event)
 
 if __name__ == "__main__":
