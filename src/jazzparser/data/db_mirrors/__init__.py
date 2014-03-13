@@ -278,3 +278,42 @@ class SequenceIndex(object):
             
     def __iter__(self):
         return iter(self.sequences)
+
+"""
+A mapping between the names for lexical schemata used in the annotated 
+corpus and those included in the lexicon table in my thesis and the 
+parsing paper.
+
+"""
+ANNOTATIONS_TO_LEXICON_NAMES = {
+    "T" : "Ton",
+    "T_III" : "Ton-III",
+    "T_bVI" : "Ton-bVI",
+    "D" : "Dom", 
+    "D_Bd" : "Dom-backdoor",
+    "D_Tt" : "Dom-tritone", 
+    "D_Btk" : "Dom-bartok", 
+    "S" : "Subdom", 
+    "S_bIII" : "Subdom-bIII", 
+    "Dim_bVII" : "Dim-bVII", 
+    "Dim_V" : "Dim-V", 
+    "Dim_III" : "Dim-III", 
+    "Dim_bII" : "Dim-bII", 
+    "Pass_I" : "Pass-I", 
+    "Pass_VI" : "Pass-VI",
+    "Pass_bV" : "Pass-bV", 
+    "Pass_bIII" : "Pass-bIII", 
+    "Aug_bII" : "Aug-bII", 
+    "Aug_VI" : "Aug-VI", 
+    "TC_IV" : "Colour-IVf", 
+    "TC_IVb" : "Colour-IVb", 
+    "TC_II" : "Colour-IIf", 
+    "TC_IIb" : "Colour-IIb",
+    "D_IVm" : "Dom-IVm",
+}
+
+def annotation_to_lexicon_name(cat):
+    if cat.endswith("_Rep"):
+        return "%s-Rep" % ANNOTATIONS_TO_LEXICON_NAMES[cat[:-4]]
+    else:
+        return ANNOTATIONS_TO_LEXICON_NAMES[cat]
